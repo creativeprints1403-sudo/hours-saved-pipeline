@@ -3,7 +3,7 @@
 Every Wednesday this repository makes the week's videos on its own:
 
 1. takes the next topic from `topics.csv`
-2. writes the script, on-screen cards, 3 Shorts, title, description and tags with Claude
+2. uses the script a scheduled Claude task saved in `plans/` (see PLAN-WRITING.md), or writes one with the Claude API if `ANTHROPIC_API_KEY` is set
 3. records the narration with a free AI voice (Kokoro)
 4. draws branded cards and renders a 1080p tutorial and three vertical Shorts with captions
 5. makes the thumbnail
@@ -24,7 +24,7 @@ You review the videos once a week and approve them. Nothing goes public without 
 
 | Name | Where it comes from |
 |---|---|
-| `ANTHROPIC_API_KEY` | console.anthropic.com, API keys |
+| `ANTHROPIC_API_KEY` | optional: only if you don't use the scheduled Claude task for scripts |
 | `GOOGLE_CLIENT_ID` | Google Cloud console, Credentials, OAuth client |
 | `GOOGLE_CLIENT_SECRET` | same place |
 | `GOOGLE_REFRESH_TOKEN` | Google OAuth Playground (see the setup guide) |

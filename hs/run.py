@@ -89,11 +89,19 @@ def make(topic, next_title, cfg, plan_path=None):
     out.mkdir(parents=True, exist_ok=True)
     channel = cfg["channel"]["name"]
 
+    # A script written ahead of time (by the scheduled Claude task) wins over the API.
+    saved = ROOT / "plans" / f"{topic['id']}.json"
+    if not plan_path and saved.exists():
+        plan_path = saved
     if plan_path:
+        print(f"Using script: {plan_path}")
         plan = load_plan(plan_path)
-    else:
+    elif os.environ.get("ANTHROPIC_API_KEY"):
         print(f"Writing script: {topic['title']}")
         plan = write_plan(topic, next_title, cfg)
+    else:
+        raise SystemExit(f"No script for topic {topic['id']}: add plans/{topic['id']}.json "
+                         "(see PLAN-WRITING.md) or set the ANTHROPIC_API_KEY secret.")
     (out / "plan.json").write_text(plan.model_dump_json(indent=2))
 
     print("Rendering long video")
