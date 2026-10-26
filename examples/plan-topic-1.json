@@ -1,0 +1,307 @@
+{
+  "title": "Let ChatGPT Write Your Excel Formulas (5 Examples)",
+  "title_options": [
+    "Let ChatGPT Write Your Excel Formulas (5 Examples)",
+    "How to Use ChatGPT to Write Excel Formulas",
+    "Stop Googling Excel Formulas: Ask AI Instead"
+  ],
+  "thumbnail_words": "AI WRITES IT",
+  "thumbnail_tool": "Excel",
+  "description_intro": "Learn how to get ChatGPT to write, explain and fix Excel formulas for you, even if you hate Excel. We cover SUMIF, SUMIFS, XLOOKUP, IF and fixing errors, with every prompt copied below.",
+  "prompts_used": [
+    "My Excel sheet has Date in column A, Salesperson in B, Region in C, Product in D and Amount in E. Write a formula for the total amount for the North region.",
+    "Total for North, but only in March 2026.",
+    "Pull the price for the product in D2 from the Prices sheet, where products are in column A and prices in column B. Show 'Not found' if it's missing.",
+    "Write 'Bonus' if the amount is 10,000 or more, otherwise 'No'.",
+    "This formula shows an error. What's wrong and how do I fix it? [paste formula and error]"
+  ],
+  "tags": [
+    "chatgpt excel",
+    "excel formulas",
+    "chatgpt excel formulas",
+    "sumif",
+    "sumifs",
+    "xlookup",
+    "excel for beginners",
+    "ai for excel",
+    "excel tips",
+    "productivity"
+  ],
+  "scenes": [
+    {
+      "voiceover": "Most people waste hours googling Excel formulas. Today you'll get ChatGPT to write them, explain them, and fix them when they break. Five formulas that cover most office work.",
+      "card": {
+        "kind": "title",
+        "heading": "Let AI write your Excel formulas",
+        "lines": [
+          "SUMIF \u00b7 SUMIFS \u00b7 XLOOKUP \u00b7 IF \u00b7 fixing errors"
+        ]
+      },
+      "chapter": "Intro"
+    },
+    {
+      "voiceover": "Here's the sales sheet we'll use: dates, salespeople, regions, products and amounts. The trick is to tell ChatGPT exactly what your columns are.",
+      "card": {
+        "kind": "steps",
+        "heading": "Describe your columns",
+        "lines": [
+          "A: Date",
+          "B: Salesperson",
+          "C: Region",
+          "D: Product",
+          "E: Amount"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "Prompt one. My sheet has Date in column A, Salesperson in B, Region in C, Product in D and Amount in E. Write a formula for the total amount for the North region.",
+      "card": {
+        "kind": "chat",
+        "heading": "Total for one region",
+        "lines": [
+          "You: Region is in column C, Amount in E. Write a formula for the total for North.",
+          "AI: =SUMIF(C:C,\"North\",E:E)"
+        ]
+      },
+      "chapter": "SUMIF: total for one region"
+    },
+    {
+      "voiceover": "In plain English: look down the Region column, and wherever it says North, add up the Amount. Paste it into any empty cell and there's your total.",
+      "card": {
+        "kind": "code",
+        "heading": "How SUMIF reads",
+        "lines": [
+          "=SUMIF(C:C, \"North\", E:E)",
+          "where to look, what to match, what to add"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "Now something harder. Total for North, but only in March. This is where most people give up.",
+      "card": {
+        "kind": "chat",
+        "heading": "Two conditions at once",
+        "lines": [
+          "You: Total for North, but only in March 2026.",
+          "AI: Use SUMIFS, because there is more than one condition."
+        ]
+      },
+      "chapter": "SUMIFS: two conditions"
+    },
+    {
+      "voiceover": "ChatGPT switches to SUMIFS, with an S, because we now have more than one condition. Region is North, and the date is on or after the first of March and before the first of April.",
+      "card": {
+        "kind": "code",
+        "heading": "SUMIFS for date ranges",
+        "lines": [
+          "=SUMIFS(E:E, C:C,\"North\", A:A,\">=\"&DATE(2026,3,1), A:A,\"<\"&DATE(2026,4,1))"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "Formula three is looking things up. Ask it to pull the price for the product in D2 from a Prices sheet, and to show Not found if it's missing.",
+      "card": {
+        "kind": "chat",
+        "heading": "Look up a price",
+        "lines": [
+          "You: Pull the price for the product in D2 from the Prices sheet. Show 'Not found' if it's missing.",
+          "AI: =XLOOKUP(D2,Prices!A:A,Prices!B:B,\"Not found\")"
+        ]
+      },
+      "chapter": "XLOOKUP: look up a price"
+    },
+    {
+      "voiceover": "XLOOKUP finds the product in the Prices list and returns the price next to it. Drag it down and every row fills in. On an older Excel without XLOOKUP, just ask for the VLOOKUP version.",
+      "card": {
+        "kind": "tip",
+        "heading": "Older Excel?",
+        "lines": [
+          "Ask: \"Give me the VLOOKUP version\"",
+          "Works in Google Sheets too"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "Four is a simple rule. Write Bonus if the amount is ten thousand or more, otherwise No.",
+      "card": {
+        "kind": "code",
+        "heading": "A simple IF rule",
+        "lines": [
+          "=IF(E2>=10000, \"Bonus\", \"No\")"
+        ]
+      },
+      "chapter": "IF: a simple rule"
+    },
+    {
+      "voiceover": "Five is my favourite: fixing errors. When a formula shows an error, copy the formula and the error into ChatGPT and ask what's wrong. It explains the problem in plain English and gives you the fixed version.",
+      "card": {
+        "kind": "chat",
+        "heading": "Fix any error",
+        "lines": [
+          "You: This shows #REF!. What's wrong? [paste formula]",
+          "AI: The sheet name is missing. Here's the fixed formula..."
+        ]
+      },
+      "chapter": "Fixing errors"
+    },
+    {
+      "voiceover": "Three tips so it gets it right the first time. Always name your columns and their letters. Say what should happen when data is missing. And ask it to explain the formula step by step so you can check it.",
+      "card": {
+        "kind": "steps",
+        "heading": "Get it right first time",
+        "lines": [
+          "Name your columns and letters",
+          "Say what to do when data is missing",
+          "Ask: \"Explain this step by step\""
+        ]
+      },
+      "chapter": "Tips"
+    },
+    {
+      "voiceover": "One warning. AI can be confidently wrong. Always test a formula on a few rows you can check by hand before you trust it with real numbers.",
+      "card": {
+        "kind": "warning",
+        "heading": "Always test on a few rows",
+        "lines": [
+          "AI can be confidently wrong",
+          "Check 3 rows by hand first"
+        ]
+      },
+      "chapter": "Warning"
+    },
+    {
+      "voiceover": "That's five formulas: SUMIF, SUMIFS, XLOOKUP, IF, and error fixing. All the prompts are in the description. Next week, clearing a hundred emails in fifteen minutes with AI. Subscribe so you don't miss it.",
+      "card": {
+        "kind": "recap",
+        "heading": "Five formulas, zero googling",
+        "lines": [
+          "SUMIF",
+          "SUMIFS",
+          "XLOOKUP",
+          "IF",
+          "Fixing errors"
+        ]
+      },
+      "chapter": "Recap"
+    }
+  ],
+  "shorts": [
+    {
+      "title": "Stop Googling Excel Formulas",
+      "hook": "Stop googling Excel formulas.",
+      "scenes": [
+        {
+          "voiceover": "Tell ChatGPT what's in each column, then say what you want.",
+          "card": {
+            "kind": "chat",
+            "heading": "Just ask",
+            "lines": [
+              "You: Region is in C, Amount in E. Total for North?",
+              "AI: =SUMIF(C:C,\"North\",E:E)"
+            ]
+          }
+        },
+        {
+          "voiceover": "Paste it in and you're done. Look down Region, wherever it says North, add up Amount.",
+          "card": {
+            "kind": "code",
+            "heading": "Paste it in",
+            "lines": [
+              "=SUMIF(C:C, \"North\", E:E)"
+            ]
+          }
+        },
+        {
+          "voiceover": "Follow for more AI shortcuts that save you hours.",
+          "card": {
+            "kind": "title",
+            "heading": "Follow for more",
+            "lines": [
+              "Hours Saved"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Excel Error? Do This",
+      "hook": "Excel error? Do this.",
+      "scenes": [
+        {
+          "voiceover": "Copy the formula and the error message into ChatGPT.",
+          "card": {
+            "kind": "chat",
+            "heading": "Paste the error",
+            "lines": [
+              "You: This shows #REF!. What's wrong? [formula]"
+            ]
+          }
+        },
+        {
+          "voiceover": "It tells you what broke in plain English, and gives you the fixed formula.",
+          "card": {
+            "kind": "chat",
+            "heading": "Get the fix",
+            "lines": [
+              "AI: The sheet name is missing. Use this instead..."
+            ]
+          }
+        },
+        {
+          "voiceover": "Then test it on a few rows you can check by hand. Follow for more.",
+          "card": {
+            "kind": "warning",
+            "heading": "Always test it",
+            "lines": [
+              "Check 3 rows by hand"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Prompt That Writes Perfect Formulas",
+      "hook": "The prompt that writes perfect Excel formulas.",
+      "scenes": [
+        {
+          "voiceover": "One: name your columns and their letters.",
+          "card": {
+            "kind": "steps",
+            "heading": "Name your columns",
+            "lines": [
+              "A: Date, C: Region, E: Amount"
+            ]
+          }
+        },
+        {
+          "voiceover": "Two: say what should happen when data is missing.",
+          "card": {
+            "kind": "steps",
+            "heading": "Handle missing data",
+            "lines": [
+              "\"Show Not found if it's missing\""
+            ]
+          }
+        },
+        {
+          "voiceover": "Three: ask it to explain the formula step by step, so you can check it. Follow for more.",
+          "card": {
+            "kind": "steps",
+            "heading": "Ask for an explanation",
+            "lines": [
+              "\"Explain this step by step\""
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "fact_check": [
+    "XLOOKUP needs Excel 2021, Microsoft 365 or Google Sheets; older versions need VLOOKUP",
+    "Test each formula on a small sample sheet before publishing"
+  ]
+}

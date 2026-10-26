@@ -1,0 +1,8 @@
+anthropic>=0.70
+pydantic>=2
+sherpa-onnx==1.12.26
+soundfile
+numpy
+pillow>=10
+google-api-python-client>=2.100
+google-auth>=2.20

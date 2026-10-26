@@ -1,0 +1,78 @@
+name: Weekly videos
+
+on:
+  schedule:
+    - cron: "30 12 * * 3"   # every Wednesday 12:30 UTC (6 pm IST)
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: "Topic number from topics.csv (leave empty for the next one)"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency: weekly-videos
+
+jobs:
+  make:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install tools
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          pip install -r requirements.txt
+
+      - name: Cache voice model
+        id: model
+        uses: actions/cache@v4
+        with:
+          path: models/kokoro
+          key: kokoro-en-v0_19
+
+      - name: Download voice model
+        if: steps.model.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p models
+          curl -sSL https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kokoro-en-v0_19.tar.bz2 | tar xj -C models
+          mv models/kokoro-en-v0_19 models/kokoro
+
+      - name: Make videos
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          TOPIC: ${{ inputs.topic }}
+        run: |
+          if [ -n "$TOPIC" ]; then
+            python -m hs.run make --topic "$TOPIC" --upload
+          else
+            python -m hs.run weekly
+          fi
+
+      - name: Keep a copy of the files for 14 days
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: videos-${{ github.run_number }}
+          path: out/*/
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Mark topic as done
+        run: |
+          git config user.name "hours-saved-bot"
+          git config user.email "hours-saved-bot@users.noreply.github.com"
+          git add topics.csv
+          git commit -m "Mark topic done" || exit 0
+          git push

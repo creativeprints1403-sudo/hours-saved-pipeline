@@ -1,0 +1,31 @@
+# Hours Saved pipeline settings. Edit these in GitHub (pencil icon) - no code needed.
+
+[channel]
+name = "Hours Saved"
+tools_link = ""          # your "Tools I use" Linktree/Notion link, added to every description
+disclosure = "Some links in my descriptions are affiliate links. If you buy through them I may earn a small commission at no extra cost to you."
+
+[weekly]
+long_videos = 1          # long tutorials made per weekly run
+shorts_per_video = 3     # vertical Shorts cut from each tutorial
+# Publish times in UTC. 14:00 UTC = 7:30 pm IST = morning in the US.
+long_publish = "Saturday 14:00"
+shorts_publish = ["Monday 14:00", "Wednesday 14:00", "Friday 14:00"]
+
+[script]
+model = "claude-opus-5-5"
+target_words = 1100      # about 8 minutes of narration
+
+[voice]
+engine = "kokoro"        # free, open licence (Apache 2.0), fine for monetized videos
+kokoro_voice = "af"      # same voice as video 1. Others: af_bella, af_sarah, am_adam, am_michael, bf_emma, bm_george
+speed = 1.0
+# engine = "elevenlabs" uses ELEVENLABS_API_KEY and this voice id (paid plan needed to monetize)
+elevenlabs_voice_id = ""
+
+[youtube]
+# "drive"  : finished videos go to a Google Drive folder; you upload from your phone (works on day one)
+# "youtube": uploaded straight to YouTube as private, scheduled drafts (needs Google's API audit approved)
+mode = "drive"
+category_id = "27"       # Education
+drive_folder = "Hours Saved - ready to post"
