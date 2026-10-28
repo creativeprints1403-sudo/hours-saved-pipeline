@@ -53,11 +53,14 @@ jobs:
           GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           TOPIC: ${{ inputs.topic }}
+          PYTHONUNBUFFERED: "1"
         run: |
+          set -o pipefail
+          mkdir -p logs
           if [ -n "$TOPIC" ]; then
-            python -m hs.run make --topic "$TOPIC" --upload
+            python -m hs.run make --topic "$TOPIC" --upload 2>&1 | tee logs/last-run.txt
           else
-            python -m hs.run weekly
+            python -m hs.run weekly 2>&1 | tee logs/last-run.txt
           fi
 
       - name: Keep a copy of the files for 14 days
@@ -69,10 +72,11 @@ jobs:
           if-no-files-found: ignore
           retention-days: 14
 
-      - name: Mark topic as done
+      - name: Save the run log and mark the topic done
+        if: always()
         run: |
           git config user.name "hours-saved-bot"
           git config user.email "hours-saved-bot@users.noreply.github.com"
-          git add topics.csv
-          git commit -m "Mark topic done" || exit 0
-          git push
+          git add topics.csv logs/last-run.txt 2>/dev/null || true
+          git commit -m "Weekly run ${{ github.run_number }}: ${{ job.status }}" || exit 0
+          git pull --rebase -q origin main && git push
