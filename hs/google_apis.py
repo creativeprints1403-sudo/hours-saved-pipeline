@@ -15,6 +15,11 @@ SCOPES = [
 
 def _creds() -> Credentials:
     # One refresh token from Google's OAuth Playground, stored as GitHub secrets.
+    missing = [k for k in ("GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET", "GOOGLE_REFRESH_TOKEN")
+               if not os.environ.get(k)]
+    if missing:
+        raise SystemExit(f"Missing GitHub secret(s): {', '.join(missing)}. Add them under "
+                         "Settings > Secrets and variables > Actions, spelled exactly like this.")
     return Credentials(
         None,
         refresh_token=os.environ["GOOGLE_REFRESH_TOKEN"],
