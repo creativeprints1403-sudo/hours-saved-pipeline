@@ -1,17 +1,8 @@
-Traceback (most recent call last):
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-  File "/home/runner/work/hours-saved-pipeline/hours-saved-pipeline/hs/google_apis.py", line 116, in <module>
-    check(tomllib.load(f)["youtube"]["mode"])
-  File "/home/runner/work/hours-saved-pipeline/hours-saved-pipeline/hs/google_apis.py", line 100, in check
-    creds.refresh(Request())
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/google/auth/credentials.py", line 519, in refresh
-    self._perform_refresh_token(request)
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/google/oauth2/credentials.py", line 437, in _perform_refresh_token
-    ) = reauth.refresh_grant(
-        ^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/google/oauth2/reauth.py", line 367, in refresh_grant
-    _client._handle_error_response(response_data, retryable_error)
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/google/oauth2/_client.py", line 75, in _handle_error_response
-    raise exceptions.RefreshError(
-google.auth.exceptions.RefreshError: ('unauthorized_client: Unauthorized', {'error': 'unauthorized_client', 'error_description': 'Unauthorized'})
+Google token allows: drive.file
+Using script: /home/runner/work/hours-saved-pipeline/hours-saved-pipeline/plans/1.json
+Rendering long video
+Rendering Short 1
+Rendering Short 2
+Rendering Short 3
+Saved to Drive: https://drive.google.com/drive/folders/1uVoVonVnU5dgd3OPmb_D8g6aTMB3ZvBd
+Finished: /home/runner/work/hours-saved-pipeline/hours-saved-pipeline/out/1-how-to-use-chatgpt-to-write-excel-formulas-even-if
