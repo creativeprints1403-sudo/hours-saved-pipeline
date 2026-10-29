@@ -1,27 +1,2 @@
-Using script: /home/runner/work/hours-saved-pipeline/hours-saved-pipeline/plans/1.json
-Rendering long video
-Rendering Short 1
-Rendering Short 2
-Rendering Short 3
-Traceback (most recent call last):
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-  File "/home/runner/work/hours-saved-pipeline/hours-saved-pipeline/hs/run.py", line 199, in <module>
-    main()
-  File "/home/runner/work/hours-saved-pipeline/hours-saved-pipeline/hs/run.py", line 192, in main
-    deliver(out, plan, items, cfg)
-  File "/home/runner/work/hours-saved-pipeline/hours-saved-pipeline/hs/run.py", line 164, in deliver
-    link = google_apis.to_drive(yc["drive_folder"], out.name, files)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/hours-saved-pipeline/hours-saved-pipeline/hs/google_apis.py", line 50, in to_drive
-    root = _drive_folder(drive, folder_name)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/hours-saved-pipeline/hours-saved-pipeline/hs/google_apis.py", line 38, in _drive_folder
-    found = drive.files().list(q=q, fields="files(id)").execute().get("files", [])
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
-    return wrapped(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/googleapiclient/http.py", line 1018, in execute
-    raise HttpError(resp, content, uri=self.uri)
-googleapiclient.errors.HttpError: <HttpError 403 when requesting https://www.googleapis.com/drive/v3/files?q=name+%3D+%27Hours+Saved+-+ready+to+post%27+and+mimeType+%3D+%27application%2Fvnd.google-apps.folder%27+and+trashed+%3D+false&fields=files%28id%29&alt=json returned "Request had insufficient authentication scopes.". Details: "[{'message': 'Insufficient Permission', 'domain': 'global', 'reason': 'insufficientPermissions'}]">
+Google token allows: youtube.force-ssl
+The refresh token is missing: https://www.googleapis.com/auth/drive.file. Make a new one in the OAuth Playground with all three scopes and tick every box on Google's permission screen.
