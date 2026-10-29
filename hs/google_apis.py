@@ -26,7 +26,8 @@ def _creds() -> Credentials:
         token_uri="https://oauth2.googleapis.com/token",
         client_id=os.environ["GOOGLE_CLIENT_ID"],
         client_secret=os.environ["GOOGLE_CLIENT_SECRET"],
-        scopes=SCOPES,
+        # No scopes here: asking for scopes on refresh fails with invalid_scope if the
+        # token was granted fewer. The token keeps the scopes ticked in the Playground.
     )
 
 
