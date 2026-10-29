@@ -101,11 +101,13 @@ def check(mode: str):
     with urllib.request.urlopen(f"https://oauth2.googleapis.com/tokeninfo?access_token={creds.token}") as r:
         granted = json.load(r).get("scope", "").split()
     print("Google token allows: " + (", ".join(s.rsplit("/", 1)[-1] for s in granted) or "nothing"))
-    need = SCOPES[:2] if mode == "youtube" else SCOPES[2:]
+    # Google won't grant YouTube and Drive scopes in one request, so the token holds
+    # only the scope for the current mode (force-ssl also covers uploads).
+    need = [SCOPES[1]] if mode == "youtube" else [SCOPES[2]]
     missing = [s for s in need if s not in granted]
     if missing:
         raise SystemExit(f"The refresh token is missing: {', '.join(missing)}. Make a new one in the OAuth "
-                         "Playground with all three scopes and tick every box on Google's permission screen.")
+                         "Playground with only that scope and tick its box on Google's permission screen.")
 
 
 if __name__ == "__main__":
