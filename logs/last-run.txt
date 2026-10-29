@@ -13,10 +13,10 @@ Traceback (most recent call last):
   File "/home/runner/work/hours-saved-pipeline/hours-saved-pipeline/hs/run.py", line 164, in deliver
     link = google_apis.to_drive(yc["drive_folder"], out.name, files)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/hours-saved-pipeline/hours-saved-pipeline/hs/google_apis.py", line 44, in to_drive
+  File "/home/runner/work/hours-saved-pipeline/hours-saved-pipeline/hs/google_apis.py", line 49, in to_drive
     root = _drive_folder(drive, folder_name)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/hours-saved-pipeline/hours-saved-pipeline/hs/google_apis.py", line 32, in _drive_folder
+  File "/home/runner/work/hours-saved-pipeline/hours-saved-pipeline/hs/google_apis.py", line 37, in _drive_folder
     found = drive.files().list(q=q, fields="files(id)").execute().get("files", [])
             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
@@ -43,4 +43,4 @@ Traceback (most recent call last):
     _client._handle_error_response(response_data, retryable_error)
   File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/google/oauth2/_client.py", line 75, in _handle_error_response
     raise exceptions.RefreshError(
-google.auth.exceptions.RefreshError: ('invalid_request: Missing required parameter: refresh_token', {'error': 'invalid_request', 'error_description': 'Missing required parameter: refresh_token'})
+google.auth.exceptions.RefreshError: ('invalid_scope: Bad Request', {'error': 'invalid_scope', 'error_description': 'Bad Request'})
