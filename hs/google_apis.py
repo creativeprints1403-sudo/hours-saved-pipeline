@@ -89,3 +89,26 @@ def to_youtube(video: Path, title: str, description: str, tags, category: str,
             media_body=MediaFileUpload(str(captions), mimetype="application/octet-stream"),
         ).execute()
     return vid
+
+
+def check(mode: str):
+    """Fail in seconds, not after rendering, if the token can't do what config.toml asks."""
+    import json
+    import urllib.request
+    from google.auth.transport.requests import Request
+    creds = _creds()
+    creds.refresh(Request())
+    with urllib.request.urlopen(f"https://oauth2.googleapis.com/tokeninfo?access_token={creds.token}") as r:
+        granted = json.load(r).get("scope", "").split()
+    print("Google token allows: " + (", ".join(s.rsplit("/", 1)[-1] for s in granted) or "nothing"))
+    need = SCOPES[:2] if mode == "youtube" else SCOPES[2:]
+    missing = [s for s in need if s not in granted]
+    if missing:
+        raise SystemExit(f"The refresh token is missing: {', '.join(missing)}. Make a new one in the OAuth "
+                         "Playground with all three scopes and tick every box on Google's permission screen.")
+
+
+if __name__ == "__main__":
+    import tomllib
+    with open(Path(__file__).resolve().parent.parent / "config.toml", "rb") as f:
+        check(tomllib.load(f)["youtube"]["mode"])

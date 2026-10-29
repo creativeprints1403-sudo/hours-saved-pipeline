@@ -57,10 +57,11 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p logs
+          python -m hs.google_apis 2>&1 | tee logs/last-run.txt
           if [ -n "$TOPIC" ]; then
-            python -m hs.run make --topic "$TOPIC" --upload 2>&1 | tee logs/last-run.txt
+            python -m hs.run make --topic "$TOPIC" --upload 2>&1 | tee -a logs/last-run.txt
           else
-            python -m hs.run weekly 2>&1 | tee logs/last-run.txt
+            python -m hs.run weekly 2>&1 | tee -a logs/last-run.txt
           fi
 
       - name: Keep a copy of the files for 14 days
