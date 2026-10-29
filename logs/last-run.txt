@@ -13,34 +13,15 @@ Traceback (most recent call last):
   File "/home/runner/work/hours-saved-pipeline/hours-saved-pipeline/hs/run.py", line 164, in deliver
     link = google_apis.to_drive(yc["drive_folder"], out.name, files)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/hours-saved-pipeline/hours-saved-pipeline/hs/google_apis.py", line 49, in to_drive
+  File "/home/runner/work/hours-saved-pipeline/hours-saved-pipeline/hs/google_apis.py", line 50, in to_drive
     root = _drive_folder(drive, folder_name)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/hours-saved-pipeline/hours-saved-pipeline/hs/google_apis.py", line 37, in _drive_folder
+  File "/home/runner/work/hours-saved-pipeline/hours-saved-pipeline/hs/google_apis.py", line 38, in _drive_folder
     found = drive.files().list(q=q, fields="files(id)").execute().get("files", [])
             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
     return wrapped(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/googleapiclient/http.py", line 1003, in execute
-    resp, content = _retry_request(
-                    ^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/googleapiclient/http.py", line 191, in _retry_request
-    resp, content = http.request(uri, method, *args, **kwargs)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/google_auth_httplib2.py", line 205, in request
-    self.credentials.before_request(self._request, method, uri, request_headers)
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/google/auth/credentials.py", line 242, in before_request
-    self._blocking_refresh(request)
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/google/auth/credentials.py", line 205, in _blocking_refresh
-    self.refresh(request)
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/google/auth/credentials.py", line 519, in refresh
-    self._perform_refresh_token(request)
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/google/oauth2/credentials.py", line 437, in _perform_refresh_token
-    ) = reauth.refresh_grant(
-        ^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/google/oauth2/reauth.py", line 367, in refresh_grant
-    _client._handle_error_response(response_data, retryable_error)
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/google/oauth2/_client.py", line 75, in _handle_error_response
-    raise exceptions.RefreshError(
-google.auth.exceptions.RefreshError: ('invalid_scope: Bad Request', {'error': 'invalid_scope', 'error_description': 'Bad Request'})
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/googleapiclient/http.py", line 1018, in execute
+    raise HttpError(resp, content, uri=self.uri)
+googleapiclient.errors.HttpError: <HttpError 403 when requesting https://www.googleapis.com/drive/v3/files?q=name+%3D+%27Hours+Saved+-+ready+to+post%27+and+mimeType+%3D+%27application%2Fvnd.google-apps.folder%27+and+trashed+%3D+false&fields=files%28id%29&alt=json returned "Request had insufficient authentication scopes.". Details: "[{'message': 'Insufficient Permission', 'domain': 'global', 'reason': 'insufficientPermissions'}]">
