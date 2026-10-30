@@ -2,8 +2,12 @@
 
 [channel]
 name = "Hours Saved"
-tools_link = ""          # your "Tools I use" Linktree/Notion link, added to every description
+tools_link = ""          # your "Tools I use" Linktree link; shown near the top of every description once set
 disclosure = "Some links in my descriptions are affiliate links. If you buy through them I may earn a small commission at no extra cost to you."
+
+# Direct affiliate links by tool name. When a video's main tool is listed here, its link goes
+# on the first line of the description. Example: ElevenLabs = "https://try.elevenlabs.io/abc"
+[affiliate_links]
 
 [weekly]
 long_videos = 1          # long tutorials made per weekly run
@@ -29,3 +33,6 @@ elevenlabs_voice_id = ""
 mode = "drive"
 category_id = "27"       # Education
 drive_folder = "Hours Saved - ready to post"
+# Auto-posting through Make.com (set the MAKE_WEBHOOK_URL secret to turn it on). Make's free plan
+# only takes files up to 5 MB, so bigger videos are left for you to post. Core plan: set 100.
+make_max_mb = 5

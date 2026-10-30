@@ -71,14 +71,20 @@ def chapters(starts, total):
 
 def description(plan, chap, cfg, short=False):
     ch = cfg["channel"]
-    parts = [plan.description_intro]
+    parts = []
+    links = {k.lower(): v for k, v in cfg.get("affiliate_links", {}).items() if v}
+    if plan.thumbnail_tool.lower() in links:
+        parts.append(f"Try {plan.thumbnail_tool}: {links[plan.thumbnail_tool.lower()]}")
+    parts.append(plan.description_intro)
+    if ch.get("tools_link"):
+        parts.append("Tools I use (some are affiliate links, which means I may earn a small commission "
+                     f"at no extra cost to you): {ch['tools_link']}")
     if chap and not short:
         parts.append("Chapters\n" + chap)
     if plan.prompts_used and not short:
         parts.append("Prompts from the video\n" + "\n".join(f"- {p}" for p in plan.prompts_used))
-    if ch.get("tools_link"):
-        parts.append(f"Tools I use: {ch['tools_link']}")
-    parts.append(ch["disclosure"])
+    if links or ch.get("tools_link"):
+        parts.append(ch["disclosure"])
     parts.append("#Shorts #AItools #productivity" if short else "#AItools #productivity")
     return "\n\n".join(parts)
 
@@ -134,14 +140,17 @@ def schedule(items, cfg, now):
             it["publish_at"] = after
 
 
-def post_sheet(out, plan, items):
+def post_sheet(out, plan, items, cfg=None):
     """Plain-text sheet with everything needed to post from a phone, plus the review list."""
     ist = dt.timezone(dt.timedelta(hours=5, minutes=30))
     lines = [f"REVIEW BEFORE POSTING ({plan.title})", "Check these claims while you watch:"]
     lines += [f"  [ ] {c}" for c in plan.fact_check] or ["  (none flagged)"]
     for it in items:
         when = it["publish_at"].astimezone(ist).strftime("%A %d %b, %I:%M %p IST")
-        lines += ["", "=" * 60, f"FILE: {it['file']}", f"SCHEDULE: {when}", "", "TITLE:", it["title"], "",
+        auto = (cfg and os.environ.get("MAKE_WEBHOOK_URL") and cfg["youtube"]["mode"] == "drive"
+                and (out / it["file"]).stat().st_size / 1e6 <= cfg["youtube"].get("make_max_mb", 5))
+        how = "POSTED FOR YOU by Make (check it in YouTube Studio)" if auto else "POST THIS ONE YOURSELF"
+        lines += ["", "=" * 60, f"FILE: {it['file']}  ->  {how}", f"SCHEDULE: {when}", "", "TITLE:", it["title"], "",
                   "DESCRIPTION:", it["description"], "", "TAGS:", ", ".join(it["tags"])]
         if it["thumbnail"]:
             lines += ["", f"THUMBNAIL: {it['thumbnail']}"]
@@ -161,8 +170,29 @@ def deliver(out, plan, items, cfg):
             print(f"Uploaded {it['file']} -> https://studio.youtube.com/video/{vid}/edit")
     else:
         files = [out / "POST-THIS.txt", out / "thumbnail.jpg"] + [out / it["file"] for it in items]
-        link = google_apis.to_drive(yc["drive_folder"], out.name, files)
+        link, ids = google_apis.to_drive(yc["drive_folder"], out.name, files)
         print(f"Saved to Drive: {link}")
+        if os.environ.get("MAKE_WEBHOOK_URL"):
+            to_make(out, items, ids, yc)
+
+
+def to_make(out, items, ids, yc):
+    """Hand each video to the Make.com scenario, which posts it to YouTube on schedule."""
+    import urllib.request
+    for it in items:
+        mb = (out / it["file"]).stat().st_size / 1e6
+        if mb > yc.get("make_max_mb", 5):
+            print(f"Post {it['file']} yourself: {mb:.0f} MB is over the Make limit of {yc.get('make_max_mb', 5)} MB")
+            continue
+        body = {"file_id": ids[it["file"]], "file_name": it["file"], "title": it["title"],
+                "description": it["description"], "tags": ",".join(it["tags"]),
+                "publish_at": it["publish_at"].strftime("%Y-%m-%dT%H:%M:%SZ"),
+                "thumbnail_id": ids.get(it["thumbnail"], "") if it["thumbnail"] else "",
+                "category_id": yc["category_id"]}
+        req = urllib.request.Request(os.environ["MAKE_WEBHOOK_URL"], json.dumps(body).encode(),
+                                     {"Content-Type": "application/json"})
+        urllib.request.urlopen(req).read()
+        print(f"Sent {it['file']} to Make for posting")
 
 
 def main():
@@ -187,7 +217,7 @@ def main():
         later = [r for r in rows if r["status"] == "todo" and r["id"] != topic["id"]]
         out, plan, items = make(topic, later[0]["title"] if later else "", cfg, args.plan)
         schedule(items, cfg, now)
-        post_sheet(out, plan, items)
+        post_sheet(out, plan, items, cfg)
         if args.command == "weekly" or args.upload:
             deliver(out, plan, items, cfg)
             topic["status"] = "done"

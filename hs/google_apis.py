@@ -45,18 +45,19 @@ def _drive_folder(drive, name: str, parent: str = None) -> str:
 
 
 def to_drive(folder_name: str, subfolder: str, files) -> str:
-    """Copy files into Drive/<folder_name>/<subfolder>. Returns the subfolder link."""
+    """Copy files into Drive/<folder_name>/<subfolder>. Returns the subfolder link and {name: file id}."""
     drive = build("drive", "v3", credentials=_creds(), cache_discovery=False)
     root = _drive_folder(drive, folder_name)
     sub = _drive_folder(drive, subfolder, root)
+    ids = {}
     for f in files:
         f = Path(f)
-        drive.files().create(
+        ids[f.name] = drive.files().create(
             body={"name": f.name, "parents": [sub]},
             media_body=MediaFileUpload(str(f), resumable=True),
             fields="id",
-        ).execute()
-    return f"https://drive.google.com/drive/folders/{sub}"
+        ).execute()["id"]
+    return f"https://drive.google.com/drive/folders/{sub}", ids
 
 
 def to_youtube(video: Path, title: str, description: str, tags, category: str,
