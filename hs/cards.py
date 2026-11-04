@@ -48,7 +48,7 @@ def fit(draw, text, kind, width, max_lines, start, smallest):
 def _frame(w, h, channel):
     img = Image.new("RGB", (w, h), NAVY)
     d = ImageDraw.Draw(img)
-    s = w / 1920 if w > h else w / 1080
+    s = w / 1920 if w > h else w / 1080 * 1.3  # Shorts are watched on phones: bigger everything
     d.rectangle([0, 0, w, int(10 * s)], fill=YELLOW)
     d.text((int(60 * s), h - int(70 * s)), channel.upper(), font=font(int(26 * s), "bold"), fill=GREY)
     return img, d, s
@@ -110,8 +110,8 @@ def _body(d, card, shown, label, y, margin, inner, w, s, vertical):
         if card.kind == "chat":
             who, _, msg = text.partition(":")
             is_ai = who.strip().lower() in ("ai", "chatgpt", "claude", "gemini")
-            bf = font(int(body_size * 0.9), "body")
-            lines = wrap(d, msg.strip() or text, bf, inner - int(120 * s))
+            bf, lines = fit(d, msg.strip() or text, "body", inner - int(140 * s), 6,
+                            int(body_size * 0.9), int(26 * s))
             bh = len(lines) * int(bf.size * 1.3) + int(50 * s)
             x0 = margin + (int(80 * s) if is_ai else 0)
             x1 = w - margin - (0 if is_ai else int(80 * s))
@@ -152,7 +152,7 @@ def draw_hook(text: str, size, channel: str) -> Image.Image:
     w, h = size
     img, d, s = _frame(w, h, channel)
     margin = int(70 * s)
-    hf, hl = fit(d, text.upper(), "bold", w - 2 * margin, 6, int(110 * s), int(60 * s))
+    hf, hl = fit(d, text.upper(), "bold", w - 2 * margin, 6, int(120 * s), int(60 * s))
     y = int(h * 0.30)
     for i, line in enumerate(hl):
         d.text((margin, y), line, font=hf, fill=YELLOW if i == 0 else WHITE)
