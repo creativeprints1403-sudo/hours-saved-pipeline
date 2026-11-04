@@ -26,6 +26,9 @@ class Short(BaseModel):
     title: str = Field(description="Shorts title under 60 characters, no hashtags")
     hook: str = Field(description="First line, grabs attention in 2 seconds")
     scenes: List[Scene] = Field(description="3-5 scenes, total under 45 seconds of narration")
+    description: str = Field(default="", description="1-2 sentences about this Short only, "
+                             "naming the exact problem it solves in words people search for")
+    tags: List[str] = Field(default_factory=list, description="4-6 search tags for this Short only")
 
 
 class VideoPlan(BaseModel):
@@ -33,6 +36,10 @@ class VideoPlan(BaseModel):
     title_options: List[str]
     thumbnail_words: str = Field(description="2-4 punchy words for the thumbnail, e.g. 'AI WRITES IT'")
     thumbnail_tool: str = Field(description="Main tool name for the thumbnail badge, 1-2 words")
+    thumbnail_before: str = Field(default="", description="The painful 'before', crossed out on the "
+                                  "thumbnail: a short messy formula, task or number, max 40 characters")
+    thumbnail_after: str = Field(default="", description="The clean 'after' result shown with a green "
+                                 "tick, max 28 characters, e.g. =SUMIF(C:C,\"North\",E:E)")
     description_intro: str = Field(description="2 sentences on what the viewer will learn")
     prompts_used: List[str] = Field(description="Every prompt shown in the video, copied out for the description")
     tags: List[str] = Field(description="8-15 search tags")
@@ -64,8 +71,15 @@ Accuracy matters more than anything: only describe features of these tools that 
 confident exist today, keep examples generic enough to stay true across versions, and list
 anything a reviewer should verify in fact_check.
 
+Titles: the channel is new, so broad titles ("ChatGPT for Excel") lose to big channels.
+Aim the title at one specific problem people type into search (e.g. "ChatGPT SUMIFS
+With Dates in Excel"), put the main keyword first, under 60 characters. Thumbnails show a
+crossed-out painful "before" and a clean "after" with a tick, so fill thumbnail_before and
+thumbnail_after with a concrete example from the video.
+
 Also cut {shorts} Shorts: standalone moments (the single best tip, a before/after, one
-mistake to avoid), each with a strong hook and under 45 seconds."""
+mistake to avoid), each with a strong hook and under 45 seconds, and its own description
+and tags about that one moment (not a copy of the long video's)."""
 
 
 def write_plan(topic: dict, next_topic: str, cfg: dict) -> VideoPlan:
