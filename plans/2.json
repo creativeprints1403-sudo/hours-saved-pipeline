@@ -1,0 +1,407 @@
+{
+  "title": "Clear 100 Emails in 15 Minutes With AI",
+  "title_options": [
+    "Clear 100 Emails in 15 Minutes With AI",
+    "Inbox Zero in 15 Minutes (Gmail + AI)",
+    "Let AI Sort and Answer Your Emails"
+  ],
+  "thumbnail_words": "INBOX ZERO",
+  "thumbnail_tool": "Gmail",
+  "description_intro": "Learn a simple 15-minute system to clear a crowded Gmail inbox using search, filters and an AI assistant like ChatGPT or Gemini. Every prompt and search used in the video is copied below.",
+  "prompts_used": [
+    "Gmail search: category:promotions older_than:7d",
+    "Gmail search: category:social older_than:7d",
+    "Gmail filter: from:noreply OR from:no-reply",
+    "Gmail filter: subject:(receipt OR order confirmation)",
+    "Here are the subject lines and senders of my unread emails. Sort them into three groups: Reply today, Read later, and Safe to archive. Give one short reason for each. [paste list]",
+    "Write a short, polite reply to this email. Say yes to the meeting, suggest Thursday afternoon instead, and keep it under 60 words. [paste email]",
+    "Summarise this email thread in 3 bullet points, then list any questions I still need to answer and any deadlines. [paste thread]",
+    "Write a friendly reply that says no to this request for now, without sounding rude, and offers a later date. [paste email]"
+  ],
+  "tags": [
+    "inbox zero",
+    "gmail tips",
+    "chatgpt email",
+    "gemini gmail",
+    "email productivity",
+    "clear inbox fast",
+    "ai email",
+    "gmail filters",
+    "gmail search",
+    "productivity",
+    "email management",
+    "ai tools for work"
+  ],
+  "scenes": [
+    {
+      "voiceover": "A hundred unread emails, cleared in fifteen minutes. Not by reading faster, but by letting Gmail search and an AI assistant do the boring parts. Here's the exact six-step system I use, with every prompt and search in the description. Do it once today, and your inbox stays under control every week after.",
+      "card": {
+        "kind": "title",
+        "heading": "Clear 100 emails in 15 minutes",
+        "lines": [
+          "Gmail search · AI sorting · AI replies · filters"
+        ]
+      },
+      "chapter": "Intro"
+    },
+    {
+      "voiceover": "You only need Gmail and one AI assistant. That can be ChatGPT in another tab, or Gemini, which is built into Gmail on some Google plans. Set a timer for fifteen minutes. The timer matters more than you think, because email always expands to fill the time you give it.",
+      "card": {
+        "kind": "steps",
+        "heading": "What you need",
+        "lines": [
+          "Gmail",
+          "ChatGPT or Gemini",
+          "A 15-minute timer"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "Here's why this works. Most people read their inbox from top to bottom, deciding on every single email. That's slow and tiring. Instead, we deal with emails in groups: first the noise, then the easy decisions, and only then the emails that really need your brain.",
+      "card": {
+        "kind": "steps",
+        "heading": "Groups, not one by one",
+        "lines": [
+          "1. Remove the noise",
+          "2. Make the easy calls",
+          "3. Answer what matters"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "Step one. Clear the noise in bulk. Most of a crowded inbox is newsletters, promotions and automatic notifications. Type a search like this into the Gmail search bar, so you only see promotions older than a week. If it's older than a week and you haven't opened it, you were never going to. You can run the same search for social updates and automatic notifications.",
+      "card": {
+        "kind": "code",
+        "heading": "Step 1: Find the noise",
+        "lines": [
+          "category:promotions older_than:7d",
+          "category:social older_than:7d",
+          "from:notifications"
+        ]
+      },
+      "chapter": "Step 1: Clear the noise"
+    },
+    {
+      "voiceover": "Tick the select box at the top, then click the link that says select all conversations that match this search. Now press Archive. Archive is safer than delete: the emails leave your inbox, but you can still search for them later. On a busy inbox, this one move often clears more than half of it before you've read a single email.",
+      "card": {
+        "kind": "steps",
+        "heading": "Archive them all at once",
+        "lines": [
+          "Tick the box at the top",
+          "Click \"Select all conversations\"",
+          "Press Archive, not Delete"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "Step two. Stop the same emails coming back. Open a newsletter you never read. For many senders, Gmail shows an Unsubscribe link next to the sender's name at the top. One click, and you're off the list. Do this for your five worst offenders. If there's no link, look for unsubscribe at the very bottom of the email instead. Fewer emails coming in is the only cleanup that lasts.",
+      "card": {
+        "kind": "steps",
+        "heading": "Step 2: Unsubscribe",
+        "lines": [
+          "Open a newsletter you never read",
+          "Click Unsubscribe by the sender name",
+          "Repeat for your top 5 senders"
+        ]
+      },
+      "chapter": "Step 2: Unsubscribe"
+    },
+    {
+      "voiceover": "Step three. Let AI sort what's left. Copy the sender and subject line of each unread email, not the full emails, and paste them into ChatGPT with this prompt. Ask it to sort them into three groups: reply today, read later, and safe to archive, with one short reason for each. The reasons matter, because they let you check its thinking at a glance.",
+      "card": {
+        "kind": "chat",
+        "heading": "Step 3: Let AI sort the rest",
+        "lines": [
+          "You: Sort these emails into Reply today, Read later, and Safe to archive. One short reason each.",
+          "AI: Reply today: invoice question from Sam..."
+        ]
+      },
+      "chapter": "Step 3: AI sorting"
+    },
+    {
+      "voiceover": "In a few seconds you get three short lists. Archive the safe group straight away. Give the read later group a label, so it's out of your inbox but easy to find. Now you're left with only the emails that actually need you. On a typical day that's ten or fifteen, not a hundred. If the AI put something important in the wrong pile, you'll spot it from the reason it gave.",
+      "card": {
+        "kind": "steps",
+        "heading": "Act on the three lists",
+        "lines": [
+          "Safe to archive: archive now",
+          "Read later: add a label",
+          "Reply today: keep going"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "Step four. Draft replies with AI. Open an email that needs an answer, and tell the AI what you want to say in a few words. It turns your rough idea into a polite, finished reply. Ask for a word limit, so it stays short. Short replies get faster answers, and they're quicker for you to check.",
+      "card": {
+        "kind": "chat",
+        "heading": "Step 4: Draft the reply",
+        "lines": [
+          "You: Reply yes to the meeting, suggest Thursday afternoon, under 60 words.",
+          "AI: Hi Priya, thanks for the invite..."
+        ]
+      },
+      "chapter": "Step 4: AI replies"
+    },
+    {
+      "voiceover": "If your Google plan includes Gemini in Gmail, you can do this without leaving your inbox, using the Help me write option in the reply box. Either way, the hard part, finding the words, now takes seconds. Edit a word or two so it sounds like you, then send.",
+      "card": {
+        "kind": "tip",
+        "heading": "Gemini in Gmail",
+        "lines": [
+          "Look for \"Help me write\" in the reply box",
+          "Depends on your Google plan"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "One more prompt worth saving: saying no. This is the email most people put off for days. Ask for a friendly reply that declines for now, without sounding rude, and offers a later date. The email you were dreading is done in under a minute.",
+      "card": {
+        "kind": "chat",
+        "heading": "The email you keep putting off",
+        "lines": [
+          "You: Write a friendly reply that says no for now and offers a later date.",
+          "AI: Thanks so much for thinking of me..."
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "Step five. Summarise long threads. When an email has twenty replies, don't scroll through all of them. Ask for a summary, the questions still waiting for you, and any deadlines. You copy the thread in, and get back three bullet points and a short to-do list. It's the fastest way to catch up after a day off or a long weekend.",
+      "card": {
+        "kind": "chat",
+        "heading": "Step 5: Summarise long threads",
+        "lines": [
+          "You: Summarise this thread in 3 bullets. List open questions and deadlines.",
+          "AI: 1. Budget approved... Deadline: Friday"
+        ]
+      },
+      "chapter": "Step 5: Summaries"
+    },
+    {
+      "voiceover": "Step six. Make the cleanup automatic. Run your noise search again, open the search options, and choose create filter. Tick skip the inbox and apply a label. From now on those emails file themselves. You can still read them whenever you like, but they never interrupt you again. Good candidates are receipts, shipping updates, and anything from a no-reply address.",
+      "card": {
+        "kind": "steps",
+        "heading": "Step 6: Filters do it for you",
+        "lines": [
+          "Search for the noise again",
+          "Open search options, Create filter",
+          "Tick Skip the Inbox + Apply label"
+        ]
+      },
+      "chapter": "Step 6: Filters"
+    },
+    {
+      "voiceover": "Here are three filters worth setting up today. One for anything from a no-reply address. One for receipts and order confirmations. And one for calendar notifications. Each one takes about thirty seconds, and together they can quietly remove dozens of emails a week.",
+      "card": {
+        "kind": "code",
+        "heading": "Three filters to set up today",
+        "lines": [
+          "from:noreply OR from:no-reply",
+          "subject:(receipt OR order confirmation)",
+          "from:calendar-notification@google.com"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "Now three tips that save even more time. Tip one: turn on keyboard shortcuts in Gmail settings. Then E archives an email and the hash key deletes it, so you never touch the mouse. R starts a reply. After a week, your hands will do it without thinking.",
+      "card": {
+        "kind": "code",
+        "heading": "Tip 1: Keyboard shortcuts",
+        "lines": [
+          "Settings: Keyboard shortcuts on",
+          "e = archive",
+          "# = delete",
+          "r = reply"
+        ]
+      },
+      "chapter": "Tips"
+    },
+    {
+      "voiceover": "Tip two: save your most common replies as templates. In Gmail's advanced settings, turn on templates, and keep a few ready answers for questions you get every week. Then let AI tweak them when needed. Things like where to find a file, how to book time with you, or your standard prices.",
+      "card": {
+        "kind": "tip",
+        "heading": "Tip 2: Reply templates",
+        "lines": [
+          "Settings, Advanced: turn on Templates",
+          "Save your 3 most common answers"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "Tip three: check email in two fixed blocks a day, not all day long. Fifteen minutes in the morning, fifteen in the afternoon. The system only works if the inbox doesn't eat the rest of your day. Turn off email notifications in between, and let your filters handle the noise.",
+      "card": {
+        "kind": "tip",
+        "heading": "Tip 3: Two blocks a day",
+        "lines": [
+          "15 minutes in the morning",
+          "15 minutes in the afternoon",
+          "Notifications off in between"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "One honest warning. Don't paste private or confidential emails into a personal AI account, and check your company's rules first. That's why we only pasted subject lines for sorting. And always read a draft before you send it, because AI can get names, dates or tone wrong. You're the one who presses send, so you're the one who checks.",
+      "card": {
+        "kind": "warning",
+        "heading": "Be careful what you paste",
+        "lines": [
+          "No confidential emails in personal AI",
+          "Check your company's rules",
+          "Read every draft before sending"
+        ]
+      },
+      "chapter": "Warning"
+    },
+    {
+      "voiceover": "That's the system. Clear the noise, unsubscribe, let AI sort, draft and summarise, and let filters keep it clean. All the prompts are in the description. Next week, turning any meeting into notes and to-dos automatically. Subscribe so you don't miss it.",
+      "card": {
+        "kind": "recap",
+        "heading": "Inbox zero in 15 minutes",
+        "lines": [
+          "Archive the noise",
+          "Unsubscribe",
+          "AI sorts and drafts",
+          "Summarise threads",
+          "Filters keep it clean"
+        ]
+      },
+      "chapter": "Recap"
+    }
+  ],
+  "shorts": [
+    {
+      "title": "Archive 500 Emails in One Click",
+      "hook": "You can archive five hundred emails in one click.",
+      "scenes": [
+        {
+          "voiceover": "Type this into Gmail search: category promotions, older than seven days.",
+          "card": {
+            "kind": "code",
+            "heading": "Search for the noise",
+            "lines": [
+              "category:promotions older_than:7d"
+            ]
+          }
+        },
+        {
+          "voiceover": "Tick the box at the top, then click select all conversations that match this search.",
+          "card": {
+            "kind": "steps",
+            "heading": "Select everything",
+            "lines": [
+              "Tick the top box",
+              "\"Select all conversations\""
+            ]
+          }
+        },
+        {
+          "voiceover": "Press Archive. They're out of your inbox, but still searchable. Follow for more.",
+          "card": {
+            "kind": "tip",
+            "heading": "Archive, don't delete",
+            "lines": [
+              "Gone from your inbox",
+              "Still searchable later"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Let AI Sort Your Inbox",
+      "hook": "Stop deciding what to read first. Let AI do it.",
+      "scenes": [
+        {
+          "voiceover": "Copy the sender and subject of your unread emails. Just those, nothing private.",
+          "card": {
+            "kind": "steps",
+            "heading": "Copy subjects only",
+            "lines": [
+              "Sender + subject line",
+              "No email bodies"
+            ]
+          }
+        },
+        {
+          "voiceover": "Ask ChatGPT to sort them into reply today, read later, and safe to archive.",
+          "card": {
+            "kind": "chat",
+            "heading": "Ask for three lists",
+            "lines": [
+              "You: Sort into Reply today, Read later, Safe to archive.",
+              "AI: Reply today: invoice from Sam..."
+            ]
+          }
+        },
+        {
+          "voiceover": "Archive the safe list, label the rest, and only answer what matters. Follow for more.",
+          "card": {
+            "kind": "recap",
+            "heading": "Done in minutes",
+            "lines": [
+              "Archive",
+              "Label",
+              "Reply"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Email Mistake to Stop Making",
+      "hook": "This email habit is costing you an hour a day.",
+      "scenes": [
+        {
+          "voiceover": "Checking email all day means you never finish anything else.",
+          "card": {
+            "kind": "warning",
+            "heading": "Constant checking",
+            "lines": [
+              "Every check breaks your focus"
+            ]
+          }
+        },
+        {
+          "voiceover": "Instead, check in two fifteen-minute blocks, morning and afternoon.",
+          "card": {
+            "kind": "steps",
+            "heading": "Two blocks a day",
+            "lines": [
+              "15 min morning",
+              "15 min afternoon"
+            ]
+          }
+        },
+        {
+          "voiceover": "Turn notifications off in between, and let filters file the noise. Follow for more.",
+          "card": {
+            "kind": "tip",
+            "heading": "Let filters work",
+            "lines": [
+              "Notifications off",
+              "Filters on"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "fact_check": [
+    "Gmail search operators category:promotions, category:social and older_than:7d work (category tabs must be enabled for category: to be useful)",
+    "After ticking the top select box, Gmail offers 'Select all conversations that match this search'",
+    "Gmail shows an Unsubscribe link next to the sender name for many bulk senders (not all)",
+    "Gmail filter flow: search options > Create filter > 'Skip the Inbox (Archive it)' and 'Apply the label'",
+    "Gemini 'Help me write' in Gmail depends on the Google plan/region; wording says 'some Google plans'",
+    "Keyboard shortcuts: must be turned on in Settings; e = archive, # = delete, r = reply",
+    "Templates are turned on under Settings > Advanced",
+    "Filter searches work as shown: from:noreply OR from:no-reply, subject:(receipt OR order confirmation), from:calendar-notification@google.com (Google Calendar invite sender address)"
+  ]
+}
