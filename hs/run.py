@@ -69,13 +69,17 @@ def chapters(starts, total):
     return "\n".join(f"{fmt(t)} {h}" for t, h in keep)
 
 
-def description(plan, chap, cfg, short=False):
+def description(plan, chap, cfg, short=None):
     ch = cfg["channel"]
     parts = []
     links = {k.lower(): v for k, v in cfg.get("affiliate_links", {}).items() if v}
     if plan.thumbnail_tool.lower() in links:
         parts.append(f"Try {plan.thumbnail_tool}: {links[plan.thumbnail_tool.lower()]}")
-    parts.append(plan.description_intro)
+    if short:
+        parts.append(short.description or short.hook)
+        parts.append(f"Full step-by-step video on my channel: \"{plan.title}\"")
+    else:
+        parts.append(plan.description_intro)
     if ch.get("tools_link"):
         parts.append("Tools I use (some are affiliate links, which means I may earn a small commission "
                      f"at no extra cost to you): {ch['tools_link']}")
@@ -87,6 +91,11 @@ def description(plan, chap, cfg, short=False):
         parts.append(ch["disclosure"])
     parts.append("#Shorts #AItools #productivity" if short else "#AItools #productivity")
     return "\n\n".join(parts)
+
+
+def short_tags(sh, plan):
+    tags = sh.tags or plan.tags[:5]
+    return tags + ["shorts"] if "shorts" not in [t.lower() for t in tags] else tags
 
 
 def make(topic, next_title, cfg, plan_path=None):
@@ -112,7 +121,8 @@ def make(topic, next_title, cfg, plan_path=None):
 
     print("Rendering long video")
     starts, total = render.build(plan.scenes, out / "video.mp4", work / "long", channel, render.LONG, cfg=cfg)
-    thumbnail.make(plan.thumbnail_words, plan.thumbnail_tool, out / "thumbnail.jpg")
+    thumbnail.make(plan.thumbnail_words, plan.thumbnail_tool, out / "thumbnail.jpg",
+                   before=plan.thumbnail_before, after=plan.thumbnail_after)
     items = [{"file": "video.mp4", "title": plan.title, "thumbnail": "thumbnail.jpg", "captions": "video.srt",
               "description": description(plan, chapters(starts, total), cfg), "tags": plan.tags, "short": 0}]
 
@@ -121,7 +131,8 @@ def make(topic, next_title, cfg, plan_path=None):
         render.build(sh.scenes, out / f"short-{i}.mp4", work / f"short{i}", channel, render.SHORT,
                      hook=sh.hook, burn_captions=True, cfg=cfg)
         items.append({"file": f"short-{i}.mp4", "title": sh.title, "thumbnail": None, "captions": None,
-                      "description": description(plan, "", cfg, short=True), "tags": plan.tags, "short": i})
+                      "description": description(plan, "", cfg, short=sh),
+                      "tags": short_tags(sh, plan), "short": i})
 
     shutil.rmtree(work, ignore_errors=True)
     return out, plan, items
@@ -154,6 +165,11 @@ def post_sheet(out, plan, items, cfg=None):
                   "DESCRIPTION:", it["description"], "", "TAGS:", ", ".join(it["tags"])]
         if it["thumbnail"]:
             lines += ["", f"THUMBNAIL: {it['thumbnail']}"]
+        if it["short"]:
+            lines += ["", f"RELATED VIDEO: in the upload screen, set this to \"{plan.title}\" "
+                      "so viewers can tap through to the full video."]
+        else:
+            lines += ["", "AUDIENCE: No, it's not made for kids.  VISIBILITY: Schedule (or Public)."]
     (out / "POST-THIS.txt").write_text("\n".join(lines) + "\n")
 
 

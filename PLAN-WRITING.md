@@ -17,3 +17,7 @@ the next topic, so the pipeline needs no Claude API key. Steps:
 Accuracy rules matter most: only describe features you are confident exist today, keep
 examples generic enough to stay true across versions, and put anything a reviewer should
 check in `fact_check`. Helvia reads that list before posting.
+
+Views matter too: aim the title at one specific search (not a broad one big channels own),
+fill `thumbnail_before` / `thumbnail_after` with a concrete example from the video, and give
+each Short its own `description` and `tags` about that one moment.
