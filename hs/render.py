@@ -5,7 +5,7 @@ from pathlib import Path
 
 import numpy as np
 
-from . import cards, voice
+from . import cards, motion, sound, voice
 
 LONG = (1920, 1080)
 SHORT = (1080, 1920)
@@ -40,82 +40,87 @@ def _chunks(text: str, start: float, dur: float, max_words: int):
 
 def build(scenes, out_mp4: Path, work: Path, channel: str, size=LONG, hook: str = "",
           burn_captions: bool = False, cfg: dict = None):
-    """scenes: list of Scene. Returns list of (start_seconds, scene) for chapters."""
+    """Render an animated video from scenes. Returns (chapter starts, total seconds)."""
     work.mkdir(parents=True, exist_ok=True)
-    concat, audio_parts, captions, starts = [], [], [], []
+    vertical = size[1] > size[0]
+
+    # 1. Voice first, so every scene's length is known before drawing.
+    parts = []  # (kind, payload, start, dur)
+    audio, captions, starts, cues = [], [], [], []
     t = 0.0
-    n_img = 0
-
-    def add_image(img, dur):
-        nonlocal n_img
-        p = work / f"f{n_img:04d}.png"
-        img.save(p)
-        concat.append((p, dur))
-        n_img += 1
-
     if hook:
         a = voice.speak(hook, cfg)
-        audio_parts.append(a)
         dur = len(a) / voice.RATE
-        add_image(cards.draw_hook(hook, size, channel), dur)
+        audio.append(a)
+        parts.append(("hook", hook, t, dur, ""))
         captions += list(_chunks(hook, t, dur, 4 if burn_captions else 10))
         t += dur
-
     step = 0
     for sc in scenes:
         a = voice.speak(sc.voiceover, cfg)
-        audio_parts.append(a)
         dur = len(a) / voice.RATE
+        audio.append(a)
         starts.append((t, sc))
         if sc.card.kind == "steps":
             step += 1
         label = f"STEP {step}" if sc.card.kind == "steps" else ""
-        n = len(sc.card.lines)
-        if sc.card.kind == "title" or n == 0:
-            add_image(cards.draw_card(sc.card, n, size, channel, label), dur)
-        else:
-            lead = min(0.8, dur * 0.12)
-            add_image(cards.draw_card(sc.card, 0, size, channel, label), lead)
-            for k in range(1, n + 1):
-                add_image(cards.draw_card(sc.card, k, size, channel, label), (dur - lead) / n)
+        parts.append(("scene", sc.card, t, dur, label))
+        cues.append((t, "whoosh", 0))
+        cues += [(t + ct, kind, ln) for ct, kind, ln in motion.events(sc.card, dur)]
         captions += list(_chunks(sc.voiceover, t, dur, 4 if burn_captions else 10))
         t += dur
+    total = t
 
+    vo = np.concatenate(audio)
+    fx = sound.effects(len(vo) / voice.RATE, cues)
     wav = work / "voice.wav"
-    voice.save(np.concatenate(audio_parts), wav)
-
-    lst = work / "list.txt"
-    with open(lst, "w") as f:
-        for p, d in concat:
-            f.write(f"file '{p}'\nduration {d:.3f}\n")
-        f.write(f"file '{concat[-1][0]}'\n")
+    voice.save(np.clip(vo + fx[: len(vo)] * 0.6, -1, 1), wav)
+    music = work / "music.wav"
+    if MUSIC.exists():
+        music = MUSIC
+    else:
+        voice.save(sound.music(total + 1), music)
 
     srt = out_mp4.with_suffix(".srt")
     with open(srt, "w") as f:
         for i, (a, b, text) in enumerate(captions, 1):
             f.write(f"{i}\n{_ts(a)} --> {_ts(b)}\n{text}\n\n")
 
-    vf = "fps=30,format=yuv420p"
+    # 2. Frames, streamed straight into ffmpeg.
+    vf = "format=yuv420p"
     if burn_captions:
         ass = work / "captions.ass"
         _write_ass(captions, ass, size)
         vf += f",ass=filename={ass}:fontsdir={cards.FONTS}"
-
-    cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", str(lst), "-i", str(wav)]
     loud = "loudnorm=I=-14:TP=-1.5:LRA=11"  # YouTube plays everything at about -14 LUFS
-    if MUSIC.exists():
-        # Optional royalty-free music bed, ducked under the voice.
-        cmd += ["-stream_loop", "-1", "-i", str(MUSIC), "-filter_complex",
-                f"[0:v]{vf}[v];[1:a]asplit[vo][key];[2:a]volume=0.25[m];"
-                f"[m][key]sidechaincompress=threshold=0.02:ratio=8:release=400[duck];"
-                f"[vo][duck]amix=inputs=2:duration=first:normalize=0,{loud}[a]",
-                "-map", "[v]", "-map", "[a]"]
-    else:
-        cmd += ["-filter_complex", f"[0:v]{vf}[v];[1:a]{loud}[a]", "-map", "[v]", "-map", "[a]"]
-    cmd += ["-c:v", "libx264", "-preset", "medium", "-tune", "stillimage", "-crf", "20",
-            "-c:a", "aac", "-b:a", "160k", "-ar", "48000", "-shortest", "-movflags", "+faststart", str(out_mp4)]
-    subprocess.run(cmd, check=True)
-    return starts, t
+    cmd = ["ffmpeg", "-y", "-loglevel", "error",
+           "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{size[0]}x{size[1]}", "-r", str(motion.FPS), "-i", "-",
+           "-i", str(wav), "-stream_loop", "-1", "-i", str(music), "-filter_complex",
+           f"[0:v]{vf}[v];[1:a]asplit[vo][key];[2:a]aresample=24000,volume=0.22[m];"
+           f"[m][key]sidechaincompress=threshold=0.03:ratio=6:release=500[duck];"
+           f"[vo][duck]amix=inputs=2:duration=first:normalize=0,{loud}[a]",
+           "-map", "[v]", "-map", "[a]",
+           "-c:v", "libx264", "-preset", "veryfast", "-crf", "21",
+           "-c:a", "aac", "-b:a", "160k", "-ar", "48000", "-shortest", "-movflags", "+faststart", str(out_mp4)]
+    proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
+    n = int(round(total * motion.FPS))
+    k = 0
+    for kind, payload, st, dur, label in parts:
+        end = int(round((st + dur) * motion.FPS))
+        while k < end:
+            gt = k / motion.FPS
+            lt = gt - st
+            if kind == "hook":
+                img = motion.hook(payload, size, channel, lt, gt)
+            else:
+                img = motion.scene(payload, size, channel, label, lt, dur, gt,
+                                   None if vertical else gt / total)
+            proc.stdin.write(img.tobytes())
+            k += 1
+    proc.stdin.close()
+    if proc.wait() != 0:
+        raise RuntimeError("ffmpeg failed")
+    return starts, total
 
 
 def _write_ass(captions, path: Path, size):
