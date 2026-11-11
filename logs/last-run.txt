@@ -1,8 +1,8 @@
 Google token allows: drive.file
-Using script: /home/runner/work/hours-saved-pipeline/hours-saved-pipeline/plans/2.json
+Using script: /home/runner/work/hours-saved-pipeline/hours-saved-pipeline/plans/3.json
 Rendering long video
 Rendering Short 1
 Rendering Short 2
 Rendering Short 3
-Saved to Drive: https://drive.google.com/drive/folders/1DrDZRGYdl8xZnZ2XVbnVKRDkaMaU2n6-
-Finished: /home/runner/work/hours-saved-pipeline/hours-saved-pipeline/out/2-clear-100-emails-in-15-minutes-with-ai
+Saved to Drive: https://drive.google.com/drive/folders/1lOJPoQoq74DRGhqJeJ_Kq7OOXRCOjlXZ
+Finished: /home/runner/work/hours-saved-pipeline/hours-saved-pipeline/out/3-turn-any-meeting-into-notes-and-to-dos-automatical
