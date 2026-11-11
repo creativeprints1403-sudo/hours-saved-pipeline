@@ -1,0 +1,444 @@
+{
+  "title": "Google Meet AI Notes and To-Dos, Automatically",
+  "title_options": [
+    "Google Meet AI Notes and To-Dos, Automatically",
+    "Auto Meeting Notes in Google Meet (Otter or Fireflies)",
+    "Turn Any Meeting Into Notes and To-Dos Automatically"
+  ],
+  "thumbnail_words": "NOTES DONE",
+  "thumbnail_tool": "Google Meet",
+  "thumbnail_before": "Typing notes for 60 minutes",
+  "thumbnail_after": "5 to-dos, owners, dates",
+  "description_intro": "Set up a free AI note-taker like Otter.ai or Fireflies for Google Meet, so every call ends with a transcript, a summary and action items. Then turn that summary into a to-do table and a follow-up email with ChatGPT; every prompt is below.",
+  "prompts_used": [
+    "Invite line: An AI note-taker will join to record and summarise this call. Tell me before we start if you'd rather it didn't.",
+    "Turn these meeting notes into a table with three columns: task, owner, deadline. Flag any task that has no owner or no deadline. [paste summary]",
+    "Write a short follow-up email to the meeting attendees with the decisions we made and this to-do table. Keep it under 150 words. [paste notes and table]",
+    "Here are last week's to-dos and today's meeting notes. Which tasks are done, which are late, and which were not mentioned? [paste both]",
+    "Say in the meeting: Action item: [name] [does task] by [day]."
+  ],
+  "tags": [
+    "google meet notes",
+    "ai meeting notes",
+    "otter ai",
+    "fireflies ai",
+    "ai note taker",
+    "meeting transcription",
+    "meeting action items",
+    "chatgpt meeting notes",
+    "automatic meeting notes",
+    "productivity",
+    "ai tools for work",
+    "meeting minutes"
+  ],
+  "scenes": [
+    {
+      "voiceover": "You leave a one-hour meeting and have to write the notes, the decisions, and who does what. What if that was already in your inbox when the call ended? In this video I'll set up an AI note-taker for Google Meet, step by step, and then turn its summary into a clean to-do list with owners and deadlines. Every prompt is in the description.",
+      "card": {
+        "kind": "title",
+        "heading": "Meeting notes that write themselves",
+        "lines": [
+          "Google Meet + Otter.ai or Fireflies",
+          "Notes, decisions and to-dos"
+        ]
+      },
+      "chapter": "Intro"
+    },
+    {
+      "voiceover": "You need three things. A Google account with Google Calendar, an AI note-taker like Otter dot A I or Fireflies, and ChatGPT for the final clean-up. Otter and Fireflies both have free plans with limits, so you can test this today without paying anything.",
+      "card": {
+        "kind": "steps",
+        "heading": "What you need",
+        "lines": [
+          "Google Meet + Google Calendar",
+          "Otter.ai or Fireflies (free plan to start)",
+          "ChatGPT for the to-do list"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "Here's how it works. The note-taker joins your Google Meet call as an extra participant, records and transcribes the conversation, then writes a summary with action items. You don't have to press anything during the meeting. You just talk, and the notes arrive afterwards.",
+      "card": {
+        "kind": "steps",
+        "heading": "How it works",
+        "lines": [
+          "1. The AI joins your call",
+          "2. It transcribes as you talk",
+          "3. You get a summary and to-dos"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "Why bother? Because taking notes while you talk means you only half listen. And writing them up afterwards eats another twenty or thirty minutes per meeting. If you have five meetings a week, that's two hours or more, every week, spent typing up things people already said out loud.",
+      "card": {
+        "kind": "steps",
+        "heading": "Why it's worth it",
+        "lines": [
+          "Note-taking = half listening",
+          "20-30 min write-up per meeting",
+          "2+ hours a week back"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "Step one. Pick one tool and sign up. If your team mostly wants clear summaries and a searchable record, either tool works. Don't sign up for both, or two bots will join every meeting. Sign up with the same Google account your work calendar uses. That makes the next step one click.",
+      "card": {
+        "kind": "steps",
+        "heading": "Step 1: Pick one tool",
+        "lines": [
+          "Otter.ai or Fireflies, not both",
+          "Sign up with your work Google account",
+          "Start on the free plan"
+        ]
+      },
+      "chapter": "Step 1: Sign up"
+    },
+    {
+      "voiceover": "Step two. Connect your Google Calendar. During setup, the tool asks for permission to see your calendar. This is how it knows when your meetings are and which ones have a Google Meet link. Read the permission screen before you accept, so you know what you're sharing.",
+      "card": {
+        "kind": "steps",
+        "heading": "Step 2: Connect your calendar",
+        "lines": [
+          "Allow calendar access during setup",
+          "It finds meetings with a Meet link",
+          "Read the permission screen first"
+        ]
+      },
+      "chapter": "Step 2: Connect calendar"
+    },
+    {
+      "voiceover": "Step three. Choose which meetings it joins. Look in the tool's settings for auto-join. Most people start with only meetings they organise, rather than every meeting on the calendar. You can also add it to one meeting at a time, by pasting the Meet link into the tool. Start small, and widen it once you trust the results.",
+      "card": {
+        "kind": "steps",
+        "heading": "Step 3: Set auto-join",
+        "lines": [
+          "Settings: find auto-join",
+          "Start with meetings you organise",
+          "Or paste one Meet link manually"
+        ]
+      },
+      "chapter": "Step 3: Auto-join"
+    },
+    {
+      "voiceover": "Step four. Tell people before it records. The note-taker shows up in the participant list with its own name, but don't rely on that. Add a line to the meeting invite, and say it out loud at the start. Recording rules differ between countries and companies, so getting agreement first protects you and keeps trust in the team. There's a one-line note you can paste into your invite in the description.",
+      "card": {
+        "kind": "warning",
+        "heading": "Step 4: Tell everyone first",
+        "lines": [
+          "Add a line to the invite",
+          "Say it at the start of the call",
+          "Check your company's rules"
+        ]
+      },
+      "chapter": "Step 4: Consent"
+    },
+    {
+      "voiceover": "Step five. Have the meeting, then open the notes. Shortly after the call ends, the tool usually emails you a summary, and the full transcript waits in your account. You get an overview, the main topics, and a list of action items, plus a transcript you can search by word.",
+      "card": {
+        "kind": "steps",
+        "heading": "Step 5: Open the notes",
+        "lines": [
+          "Summary arrives after the call",
+          "Overview + topics + action items",
+          "Full transcript is searchable"
+        ]
+      },
+      "chapter": "Step 5: Get the notes"
+    },
+    {
+      "voiceover": "Spend one minute reading the summary before you do anything else. Check that the main decision is there and that the action items match what you remember. If something's missing, search the transcript for a keyword, find the moment, and copy the exact words into your notes.",
+      "card": {
+        "kind": "steps",
+        "heading": "Read it for one minute",
+        "lines": [
+          "Is the main decision there?",
+          "Do the to-dos match your memory?",
+          "Missing? Search the transcript"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "Step six. Turn the summary into a real to-do list. AI summaries are good, but action items are often vague, like someone will look into it. Copy the summary into ChatGPT with this prompt. Ask for a table with the task, the owner, and the deadline, and ask it to flag anything without an owner.",
+      "card": {
+        "kind": "chat",
+        "heading": "Step 6: Make a to-do list",
+        "lines": [
+          "You: Turn these notes into a table: task, owner, deadline. Flag tasks with no owner.",
+          "AI: Send budget draft | Sam | Friday..."
+        ]
+      },
+      "chapter": "Step 6: To-do list"
+    },
+    {
+      "voiceover": "Now you can see the gaps at a glance. Any task with no owner or no date is a task that won't happen. Fix those now, while everyone still remembers the meeting, not a week later when nobody does.",
+      "card": {
+        "kind": "tip",
+        "heading": "Find the gaps",
+        "lines": [
+          "No owner = nobody does it",
+          "No date = it slips",
+          "Fix them the same day"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "Then send the follow-up in one more prompt. Ask ChatGPT to write a short email with the decisions and the to-do table, under one hundred and fifty words. Read it, fix any names, and send it to everyone who was on the call. The whole thing takes about two minutes.",
+      "card": {
+        "kind": "chat",
+        "heading": "The follow-up email",
+        "lines": [
+          "You: Write a short follow-up email with the decisions and this to-do table. Under 150 words.",
+          "AI: Hi all, thanks for today. Decisions..."
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "A quick tip for recurring meetings, like a weekly team catch-up. Keep the to-do tables from each week in one document. At the start of the next meeting, paste last week's table into ChatGPT with the new notes, and ask which tasks are done, which are late, and which nobody mentioned. It's a two-minute progress check.",
+      "card": {
+        "kind": "chat",
+        "heading": "Track weekly meetings",
+        "lines": [
+          "You: Here are last week's to-dos and today's notes. Which are done, late, or not mentioned?",
+          "AI: Done: budget draft. Late: client deck..."
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "Now three tips. Tip one: say action items out loud, clearly. Something like: action item, Sam sends the report by Friday. When a task is spoken with a name and a day, the AI picks it up far more reliably than a vague maybe.",
+      "card": {
+        "kind": "tip",
+        "heading": "Tip 1: Say it out loud",
+        "lines": [
+          "\"Action item: Sam sends the report by Friday\"",
+          "Name + task + day"
+        ]
+      },
+      "chapter": "Tips"
+    },
+    {
+      "voiceover": "Tip two: search your old meetings instead of asking around. Because every call is transcribed, you can search a word like budget or launch date and jump straight to the moment it was discussed. Both tools also offer AI chat that answers questions about your meetings, depending on your plan.",
+      "card": {
+        "kind": "tip",
+        "heading": "Tip 2: Search past meetings",
+        "lines": [
+          "Search a word like \"budget\"",
+          "Jump to that moment",
+          "AI chat depends on your plan"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "Tip three: if your company pays for Google Workspace, check whether Google Meet already has a built-in option called take notes for me. It's powered by Gemini and saves notes to Google Docs. It's only on some plans, but if you have it, you may not need a separate tool at all.",
+      "card": {
+        "kind": "tip",
+        "heading": "Tip 3: Check Google Meet first",
+        "lines": [
+          "Look for \"Take notes for me\"",
+          "Uses Gemini, saves to Google Docs",
+          "Only on some Workspace plans"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "One honest warning. Transcripts are good, not perfect. Names, numbers, and accents trip them up, and the summary can miss a decision or invent a clean ending to a messy discussion. Skim the summary against your own memory before you send it on, and never paste confidential notes into a personal AI account.",
+      "card": {
+        "kind": "warning",
+        "heading": "Check before you share",
+        "lines": [
+          "Names and numbers can be wrong",
+          "Summaries can miss decisions",
+          "No confidential notes in personal AI"
+        ]
+      },
+      "chapter": "Warning"
+    },
+    {
+      "voiceover": "Also watch the free plan limits. Free plans cap things like the number of minutes, the length of each meeting, or how many transcripts you keep. Use the free plan for a couple of weeks, see how many meetings you really record, and only upgrade if the limits get in your way.",
+      "card": {
+        "kind": "steps",
+        "heading": "Free plan limits",
+        "lines": [
+          "Minutes per month",
+          "Length of each meeting",
+          "How many notes you keep"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "That's the system. Pick one note-taker, connect your calendar, choose which meetings it joins, tell people, then turn the summary into a to-do list and a follow-up email. Next week, making a full presentation in five minutes with AI. Subscribe so you don't miss it.",
+      "card": {
+        "kind": "recap",
+        "heading": "Notes on autopilot",
+        "lines": [
+          "Pick one tool",
+          "Connect your calendar",
+          "Set auto-join + tell people",
+          "AI to-do table",
+          "Send the follow-up"
+        ]
+      },
+      "chapter": "Recap"
+    }
+  ],
+  "shorts": [
+    {
+      "title": "Turn Meeting Notes Into a To-Do List",
+      "hook": "Your meeting notes are useless until you do this.",
+      "scenes": [
+        {
+          "voiceover": "AI meeting summaries often say things like someone will look into it.",
+          "card": {
+            "kind": "warning",
+            "heading": "Vague action items",
+            "lines": [
+              "\"Someone will look into it\"",
+              "= nobody does it"
+            ]
+          }
+        },
+        {
+          "voiceover": "Paste the summary into ChatGPT and ask for a table: task, owner, and deadline. Tell it to flag anything with no owner.",
+          "card": {
+            "kind": "chat",
+            "heading": "Ask for a table",
+            "lines": [
+              "You: Table: task, owner, deadline. Flag tasks with no owner.",
+              "AI: Send budget draft | Sam | Friday"
+            ]
+          }
+        },
+        {
+          "voiceover": "Fix the gaps the same day, then send it to everyone. Follow for more.",
+          "card": {
+            "kind": "recap",
+            "heading": "Done in 2 minutes",
+            "lines": [
+              "Fix the gaps",
+              "Send it out"
+            ]
+          }
+        }
+      ],
+      "description": "Turn vague AI meeting notes into a clear to-do list with owners and deadlines, using one ChatGPT prompt.",
+      "tags": [
+        "meeting notes",
+        "action items",
+        "chatgpt prompt",
+        "to do list",
+        "meeting follow up"
+      ]
+    },
+    {
+      "title": "Get Google Meet Notes Without Typing",
+      "hook": "Stop taking notes in your Google Meet calls.",
+      "scenes": [
+        {
+          "voiceover": "Sign up for an AI note-taker like Otter or Fireflies, and connect your Google Calendar.",
+          "card": {
+            "kind": "steps",
+            "heading": "Set it up once",
+            "lines": [
+              "Otter.ai or Fireflies",
+              "Connect Google Calendar"
+            ]
+          }
+        },
+        {
+          "voiceover": "Turn on auto-join, and it joins your Meet calls and transcribes them for you.",
+          "card": {
+            "kind": "steps",
+            "heading": "It joins your calls",
+            "lines": [
+              "Turn on auto-join",
+              "Start with meetings you organise"
+            ]
+          }
+        },
+        {
+          "voiceover": "After the call you get a summary and action items. Just tell people it's recording. Follow for more.",
+          "card": {
+            "kind": "tip",
+            "heading": "Notes arrive after",
+            "lines": [
+              "Summary + action items",
+              "Always tell people first"
+            ]
+          }
+        }
+      ],
+      "description": "Set up an AI note-taker for Google Meet so you get a transcript, summary and action items after every call.",
+      "tags": [
+        "google meet notes",
+        "otter ai",
+        "fireflies ai",
+        "ai note taker",
+        "meeting transcription"
+      ]
+    },
+    {
+      "title": "Say This in Meetings So AI Catches It",
+      "hook": "Say this one sentence and your AI note-taker never misses a task.",
+      "scenes": [
+        {
+          "voiceover": "AI note-takers miss tasks when people say vague things like maybe we should.",
+          "card": {
+            "kind": "warning",
+            "heading": "Vague = missed",
+            "lines": [
+              "\"Maybe we should...\"",
+              "AI can't tell who or when"
+            ]
+          }
+        },
+        {
+          "voiceover": "Instead say: action item, Sam sends the report by Friday. A name, a task, and a day.",
+          "card": {
+            "kind": "code",
+            "heading": "Say it like this",
+            "lines": [
+              "Action item: Sam sends the report by Friday"
+            ]
+          }
+        },
+        {
+          "voiceover": "The AI picks it up, and so does everyone in the room. Follow for more.",
+          "card": {
+            "kind": "tip",
+            "heading": "Name + task + day",
+            "lines": [
+              "Clear for the AI",
+              "Clear for the team"
+            ]
+          }
+        }
+      ],
+      "description": "One simple habit that makes AI meeting assistants like Otter and Fireflies catch every action item.",
+      "tags": [
+        "meeting tips",
+        "action items",
+        "ai meeting assistant",
+        "otter ai tips",
+        "productivity"
+      ]
+    }
+  ],
+  "fact_check": [
+    "Otter.ai and Fireflies both have a free plan (with limits on minutes/meeting length/storage) as of today",
+    "Both tools can connect to Google Calendar and auto-join Google Meet calls as a visible participant bot",
+    "Both tools let you choose auto-join scope (e.g. all meetings vs only meetings you organise) and add a bot to a single meeting by pasting a Meet link",
+    "Both tools send/produce a post-meeting summary with action items and a searchable transcript (email delivery may depend on settings)",
+    "Both tools offer an AI chat that answers questions about past meetings; the video says 'depending on your plan'",
+    "Google Meet 'Take notes for me' (Gemini) exists, saves notes to Google Docs, and is limited to some Workspace plans",
+    "Recording-consent wording is general advice, not legal advice; video tells viewers to check company rules"
+  ]
+}
