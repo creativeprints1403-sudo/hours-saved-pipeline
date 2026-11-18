@@ -1,0 +1,452 @@
+{
+  "title": "Gamma AI: Make a Presentation in 5 Minutes",
+  "title_options": [
+    "Gamma AI: Make a Presentation in 5 Minutes",
+    "Make a PowerPoint With AI in 5 Minutes (Gamma)",
+    "Make a Full Presentation in 5 Minutes With AI"
+  ],
+  "thumbnail_words": "DECK IN 5 MIN",
+  "thumbnail_tool": "Gamma",
+  "thumbnail_before": "3 hours building 10 slides",
+  "thumbnail_after": "10 slides in 5 minutes",
+  "description_intro": "Make a full 10-slide work presentation in about five minutes with Gamma: write a clear brief, fix the AI outline, pick a theme and export to PowerPoint or PDF. I also show the same idea in Canva with Magic Design, and every prompt is below.",
+  "prompts_used": [
+    "Make a 10-slide presentation for [audience]. Goal: [what they should decide or do]. Key points: [3-5 points]. Tone: clear and simple. Max 25 words per slide.",
+    "Shorten the text on this slide to 3 bullet points of under 8 words each.",
+    "Here is my presentation outline. What questions will [audience] ask, and which slide is weakest? [paste outline]",
+    "Turn these notes into a presentation. Keep my numbers exactly as written. One idea per slide. [paste notes]"
+  ],
+  "tags": [
+    "gamma ai",
+    "gamma ai tutorial",
+    "ai presentation",
+    "ai presentation maker",
+    "make a presentation with ai",
+    "canva magic design",
+    "canva presentation",
+    "ai powerpoint",
+    "ai slides",
+    "presentation tips",
+    "ai tools for work",
+    "productivity"
+  ],
+  "scenes": [
+    {
+      "voiceover": "You have a meeting tomorrow and no slides. Normally that's an evening gone. In this video I'll make a full ten-slide presentation in about five minutes with Gamma, then show you how to do the same thing in Canva if your company already uses it. Every prompt is in the description.",
+      "card": {
+        "kind": "title",
+        "heading": "A full deck in 5 minutes",
+        "lines": [
+          "Gamma or Canva",
+          "From one prompt to finished slides"
+        ]
+      },
+      "chapter": "Intro"
+    },
+    {
+      "voiceover": "You need two things. A free Gamma account, or a Canva account if that's what your team uses. And a few minutes to think about what your presentation is actually for. That thinking is the part AI can't do for you, and it's what makes the result good.",
+      "card": {
+        "kind": "steps",
+        "heading": "What you need",
+        "lines": [
+          "Gamma (free plan to start)",
+          "Or Canva if your team uses it",
+          "2 minutes of real thinking"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "Here's how it works. You describe the presentation in plain words. The AI writes an outline, you fix the outline, then it builds designed slides from it. You don't drag boxes around or pick fonts. You spend your time on the message, not the layout.",
+      "card": {
+        "kind": "steps",
+        "heading": "How it works",
+        "lines": [
+          "1. Describe the deck",
+          "2. Fix the outline",
+          "3. AI builds the slides",
+          "4. You check and export"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "Step one. Write a proper brief before you open any tool. A vague request like make slides about our sales gives you vague slides. Say who the audience is, what you want them to decide or do, your three to five key points, and how many slides you want. Fill in the brackets in this prompt, and keep it to a few lines. You can copy the whole thing from the description.",
+      "card": {
+        "kind": "chat",
+        "heading": "Step 1: Write the brief",
+        "lines": [
+          "You: Make a 10-slide presentation for [audience]. Goal: [decision]. Key points: [3-5 points]. Max 25 words per slide."
+        ]
+      },
+      "chapter": "Step 1: Write the brief"
+    },
+    {
+      "voiceover": "That last line, max twenty five words per slide, matters more than it looks. AI loves to fill slides with paragraphs. Nobody reads a paragraph on a slide. Short slides make you look prepared, and they keep people listening to you instead of reading ahead.",
+      "card": {
+        "kind": "tip",
+        "heading": "Keep slides short",
+        "lines": [
+          "Max 25 words per slide",
+          "Nobody reads paragraphs",
+          "You talk, the slide supports"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "Step two. Open Gamma and create something new with AI. Choose to generate a presentation, paste your brief into the box, and set the number of slides. Gamma calls each slide a card, so don't be confused by that word. Then ask it to generate the outline. Don't worry about images or colours yet. Those come later, and they're the easy part.",
+      "card": {
+        "kind": "steps",
+        "heading": "Step 2: Generate in Gamma",
+        "lines": [
+          "Create new with AI",
+          "Choose Generate, pick Presentation",
+          "Paste your brief, set slide count",
+          "Gamma calls slides 'cards'"
+        ]
+      },
+      "chapter": "Step 2: Generate"
+    },
+    {
+      "voiceover": "Step three. Fix the outline before you build anything. This is the most important minute of the whole process. You'll see a list of slide titles and bullet points. Delete what you don't need, reorder slides, and rewrite any heading that doesn't match what you actually want to say. Every change here is quick, because it's just text. Changing things after the slides are built takes much longer.",
+      "card": {
+        "kind": "steps",
+        "heading": "Step 3: Fix the outline",
+        "lines": [
+          "Delete slides you don't need",
+          "Reorder to tell a story",
+          "Rewrite weak headings"
+        ]
+      },
+      "chapter": "Step 3: Fix the outline"
+    },
+    {
+      "voiceover": "A good order for most work presentations is simple. The problem, why it matters, your recommendation, how it works, the cost or the risk, and what you need from the audience. If your outline follows that shape, the presentation will make sense even before it looks nice.",
+      "card": {
+        "kind": "steps",
+        "heading": "A shape that works",
+        "lines": [
+          "Problem",
+          "Why it matters",
+          "Your recommendation",
+          "Cost or risk",
+          "What you need from them"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "Step four. Pick a theme and generate. Choose a theme that's plain and readable, ideally close to your company colours. Then let Gamma build the slides. In under a minute you have a designed deck with headings, layouts and images. If you don't like a theme, you can switch it later, and the content stays the same. So don't spend long choosing.",
+      "card": {
+        "kind": "steps",
+        "heading": "Step 4: Theme and generate",
+        "lines": [
+          "Pick a plain, readable theme",
+          "Close to your company colours",
+          "Generate the slides"
+        ]
+      },
+      "chapter": "Step 4: Build the slides"
+    },
+    {
+      "voiceover": "Step five. Check every slide and fix it. Click into any slide to edit the text directly, like a normal document. Gamma also has an AI editing option, so you can select a slide and ask for a change in plain words, like shorten this to three bullet points. You can also ask it to make a heading punchier or split a busy slide in two. Keep each request small and specific, and check the result.",
+      "card": {
+        "kind": "chat",
+        "heading": "Step 5: Edit with AI",
+        "lines": [
+          "You: Shorten the text on this slide to 3 bullet points of under 8 words each.",
+          "AI: Done. 3 bullets, under 8 words each."
+        ]
+      },
+      "chapter": "Step 5: Edit"
+    },
+    {
+      "voiceover": "This is also where you swap in the real details. Replace any made-up example with your real numbers, dates and names. Swap a stock image for your own chart or screenshot if it tells the story better. The AI gives you the structure, you give it the facts.",
+      "card": {
+        "kind": "warning",
+        "heading": "Add your real facts",
+        "lines": [
+          "Replace any invented numbers",
+          "Add your own charts",
+          "AI = structure, you = facts"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "Step six. Share or export. You can present straight from Gamma in your browser, or share a link. If your company works in PowerPoint, export it as a PowerPoint file or a PDF. Open the export before your meeting, because layouts can shift a little when you move between tools.",
+      "card": {
+        "kind": "steps",
+        "heading": "Step 6: Share or export",
+        "lines": [
+          "Present from the browser",
+          "Or share a link",
+          "Export to PowerPoint or PDF",
+          "Open the export before the meeting"
+        ]
+      },
+      "chapter": "Step 6: Export"
+    },
+    {
+      "voiceover": "Prefer Canva? The idea is the same. In Canva, start a new presentation and look for the AI design option, which Canva calls Magic Design. Describe your presentation in a sentence, pick one of the designs it suggests, then edit the text and swap in your facts. Canva's designs can look more polished, but you'll usually edit more of the text yourself.",
+      "card": {
+        "kind": "steps",
+        "heading": "Using Canva instead",
+        "lines": [
+          "Start a new presentation",
+          "Use Magic Design",
+          "Describe it, pick a design",
+          "Edit text, add your facts"
+        ]
+      },
+      "chapter": "Canva option"
+    },
+    {
+      "voiceover": "Canva is the better choice if your company already has a brand kit there, with its logo, colours and fonts. Your slides stay on brand, your team can edit them, and you can download a PowerPoint or a PDF the same way.",
+      "card": {
+        "kind": "tip",
+        "heading": "When Canva wins",
+        "lines": [
+          "Your brand kit is already there",
+          "Team edits in one place",
+          "Download PowerPoint or PDF"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "Now three tips. Tip one: start from your own notes, not just a topic. Gamma lets you paste in text you already have, like meeting notes or a report. Tell it to keep your numbers exactly as written. The deck will sound like you, not like a generic article.",
+      "card": {
+        "kind": "chat",
+        "heading": "Tip 1: Use your own notes",
+        "lines": [
+          "You: Turn these notes into a presentation. Keep my numbers exactly as written. One idea per slide."
+        ]
+      },
+      "chapter": "Tips"
+    },
+    {
+      "voiceover": "Tip two: test your outline before you build it. Paste the outline into ChatGPT and ask what questions your audience will ask, and which slide is weakest. Thirty seconds of this can save you an awkward silence in the meeting. Then fix that slide, or add a backup slide with the answer.",
+      "card": {
+        "kind": "chat",
+        "heading": "Tip 2: Stress-test it",
+        "lines": [
+          "You: What questions will [audience] ask, and which slide is weakest?",
+          "AI: They'll ask about cost. Slide 6 is weak..."
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "Tip three: keep one master deck. When you've made a presentation you like, duplicate it next time instead of starting from scratch. Your theme, your structure and your best slides are already there, and five minutes becomes two.",
+      "card": {
+        "kind": "tip",
+        "heading": "Tip 3: Reuse your best deck",
+        "lines": [
+          "Duplicate, don't restart",
+          "Theme and structure ready",
+          "5 minutes becomes 2"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "One honest warning. AI slides can include facts, numbers or quotes that sound right but aren't. Check every number before you present, because your name is on it, not the AI's. And don't paste confidential company data into a personal account. Use the tool your company approves.",
+      "card": {
+        "kind": "warning",
+        "heading": "Check before you present",
+        "lines": [
+          "AI can invent facts and numbers",
+          "Check every figure",
+          "No confidential data in personal accounts"
+        ]
+      },
+      "chapter": "Warning"
+    },
+    {
+      "voiceover": "Also know the free plan limits. Gamma's free plan gives you a limited number of AI credits, and free decks may carry a small Gamma badge. Canva's AI features can depend on your plan too. Try the free version first, and only pay if you make decks every week.",
+      "card": {
+        "kind": "steps",
+        "heading": "Free plan limits",
+        "lines": [
+          "Limited AI credits",
+          "Possible Gamma badge on free decks",
+          "Canva AI depends on your plan"
+        ]
+      },
+      "chapter": ""
+    },
+    {
+      "voiceover": "That's the system. Write a clear brief, generate the outline, fix it, pick a theme, check every slide, and export. Next week, seven free AI tools that save me ten hours a week. Subscribe so you don't miss it.",
+      "card": {
+        "kind": "recap",
+        "heading": "A deck in 5 minutes",
+        "lines": [
+          "Write a clear brief",
+          "Fix the outline first",
+          "Pick a theme, generate",
+          "Check facts, edit with AI",
+          "Export or present"
+        ]
+      },
+      "chapter": "Recap"
+    }
+  ],
+  "shorts": [
+    {
+      "title": "The AI Presentation Prompt That Works",
+      "hook": "Stop typing 'make slides about' into AI.",
+      "scenes": [
+        {
+          "voiceover": "Ask AI to make slides about sales, and you get generic slides full of paragraphs.",
+          "card": {
+            "kind": "warning",
+            "heading": "Vague prompt, vague slides",
+            "lines": [
+              "\"Make slides about our sales\"",
+              "= generic and wordy"
+            ]
+          }
+        },
+        {
+          "voiceover": "Instead, give it the audience, the goal, your key points, and a word limit per slide.",
+          "card": {
+            "kind": "chat",
+            "heading": "Use this brief",
+            "lines": [
+              "You: 10 slides for [audience]. Goal: [decision]. Key points: [3-5]. Max 25 words per slide."
+            ]
+          }
+        },
+        {
+          "voiceover": "Paste that into Gamma or Canva and the first draft is actually usable. Follow for more.",
+          "card": {
+            "kind": "tip",
+            "heading": "Better first draft",
+            "lines": [
+              "Audience + goal + points",
+              "Word limit per slide"
+            ]
+          }
+        }
+      ],
+      "description": "A copy-paste prompt for AI presentation makers like Gamma and Canva that gives you short, focused slides instead of generic ones.",
+      "tags": [
+        "ai presentation prompt",
+        "gamma ai",
+        "ai slides",
+        "presentation tips",
+        "chatgpt prompt"
+      ]
+    },
+    {
+      "title": "Fix This Before AI Builds Your Slides",
+      "hook": "The most important minute of making slides with AI.",
+      "scenes": [
+        {
+          "voiceover": "Tools like Gamma show you an outline before they build the slides. Most people skip straight past it.",
+          "card": {
+            "kind": "warning",
+            "heading": "Don't skip the outline",
+            "lines": [
+              "Gamma shows an outline first",
+              "Most people click past it"
+            ]
+          }
+        },
+        {
+          "voiceover": "Delete what you don't need, reorder it into a story, and rewrite weak headings.",
+          "card": {
+            "kind": "steps",
+            "heading": "Fix it in one minute",
+            "lines": [
+              "Delete extra slides",
+              "Reorder into a story",
+              "Rewrite weak headings"
+            ]
+          }
+        },
+        {
+          "voiceover": "Problem, why it matters, your recommendation, the cost, and what you need. Then build. Follow for more.",
+          "card": {
+            "kind": "recap",
+            "heading": "A shape that works",
+            "lines": [
+              "Problem > why > recommendation",
+              "Cost > what you need"
+            ]
+          }
+        }
+      ],
+      "description": "Why you should edit the outline in Gamma before generating slides, plus a simple structure for work presentations.",
+      "tags": [
+        "gamma ai tutorial",
+        "presentation structure",
+        "ai presentation",
+        "powerpoint tips",
+        "work presentation"
+      ]
+    },
+    {
+      "title": "Check This Before Presenting AI Slides",
+      "hook": "AI made your slides. Check this before you present.",
+      "scenes": [
+        {
+          "voiceover": "AI presentation tools can add numbers, facts or quotes that sound right but aren't.",
+          "card": {
+            "kind": "warning",
+            "heading": "AI can invent facts",
+            "lines": [
+              "Numbers",
+              "Facts",
+              "Quotes"
+            ]
+          }
+        },
+        {
+          "voiceover": "Go through every slide and replace anything made up with your real figures and names.",
+          "card": {
+            "kind": "steps",
+            "heading": "Check every slide",
+            "lines": [
+              "Swap in real numbers",
+              "Check names and dates"
+            ]
+          }
+        },
+        {
+          "voiceover": "And open the PowerPoint export before the meeting, because layouts can shift. Follow for more.",
+          "card": {
+            "kind": "tip",
+            "heading": "Open the export first",
+            "lines": [
+              "Layouts can shift",
+              "Check before the meeting"
+            ]
+          }
+        }
+      ],
+      "description": "Two checks to do before presenting slides made with AI tools like Gamma or Canva: invented facts and broken PowerPoint exports.",
+      "tags": [
+        "ai slides mistakes",
+        "gamma ai",
+        "canva presentation",
+        "presentation tips",
+        "ai fact check"
+      ]
+    }
+  ],
+  "fact_check": [
+    "Gamma has a free plan with a limited number of AI credits as of today",
+    "Gamma flow: Create new with AI > Generate > Presentation; you paste a prompt, set the number of cards, and get an editable outline before the slides are built",
+    "Gamma calls slides 'cards' and offers themes to pick before generating",
+    "Gamma has an AI editing option to change a selected slide with a plain-language instruction",
+    "Gamma lets you paste in your own text/notes to turn into a presentation",
+    "Gamma can present in the browser, share a link, and export to PowerPoint and PDF (check whether export is on the free plan)",
+    "Free Gamma decks may show a 'Made with Gamma' badge (video says 'may')",
+    "Canva Magic Design can generate presentation designs from a text description, and AI feature availability depends on plan",
+    "Canva presentations can be downloaded as PowerPoint (PPTX) and PDF; brand kits keep logo/colours/fonts",
+    "The '5 minutes' framing assumes a short deck and a ready brief; it's fair but keep it honest in the thumbnail"
+  ]
+}
