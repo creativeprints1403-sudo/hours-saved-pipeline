@@ -1,8 +1,18 @@
 Google token allows: drive.file
-Using script: /home/runner/work/hours-saved-pipeline/hours-saved-pipeline/plans/3.json
+Using script: /home/runner/work/hours-saved-pipeline/hours-saved-pipeline/plans/4.json
 Rendering long video
 Rendering Short 1
-Rendering Short 2
-Rendering Short 3
-Saved to Drive: https://drive.google.com/drive/folders/1lOJPoQoq74DRGhqJeJ_Kq7OOXRCOjlXZ
-Finished: /home/runner/work/hours-saved-pipeline/hours-saved-pipeline/out/3-turn-any-meeting-into-notes-and-to-dos-automatical
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/runner/work/hours-saved-pipeline/hours-saved-pipeline/hs/run.py", line 245, in <module>
+    main()
+  File "/home/runner/work/hours-saved-pipeline/hours-saved-pipeline/hs/run.py", line 234, in main
+    out, plan, items = make(topic, later[0]["title"] if later else "", cfg, args.plan)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/hours-saved-pipeline/hours-saved-pipeline/hs/run.py", line 131, in make
+    render.build(sh.scenes, out / f"short-{i}.mp4", work / f"short{i}", channel, render.SHORT,
+  File "/home/runner/work/hours-saved-pipeline/hours-saved-pipeline/hs/render.py", line 77, in build
+    voice.save(np.clip(vo + fx[: len(vo)] * 0.6, -1, 1), wav)
+                       ~~~^~~~~~~~~~~~~~~~~~~~~
+ValueError: operands could not be broadcast together with shapes (477677,) (477676,) 
