@@ -73,6 +73,8 @@ def build(scenes, out_mp4: Path, work: Path, channel: str, size=LONG, hook: str 
 
     vo = np.concatenate(audio)
     fx = sound.effects(len(vo) / voice.RATE, cues)
+    # Seconds -> samples can round down by one sample; pad so the tracks always line up.
+    fx = np.pad(fx, (0, max(0, len(vo) - len(fx))))
     wav = work / "voice.wav"
     voice.save(np.clip(vo + fx[: len(vo)] * 0.6, -1, 1), wav)
     music = work / "music.wav"
