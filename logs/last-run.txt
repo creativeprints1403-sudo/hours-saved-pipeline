@@ -15,4 +15,4 @@ Traceback (most recent call last):
   File "/home/runner/work/hours-saved-pipeline/hours-saved-pipeline/hs/render.py", line 77, in build
     voice.save(np.clip(vo + fx[: len(vo)] * 0.6, -1, 1), wav)
                        ~~~^~~~~~~~~~~~~~~~~~~~~
-ValueError: operands could not be broadcast together with shapes (477677,) (477676,) 
+ValueError: operands could not be broadcast together with shapes (477564,) (477563,) 
